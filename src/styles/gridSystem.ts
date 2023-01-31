@@ -48,7 +48,10 @@ export const SCCol_4 = styled.div`
     flex: 0 0 33.33%;
     max-width: 33.33%;
 `
-
+export const SCCol_5 = styled.div`
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+`
 
 export const SCCol_6 = styled.div`
     flex: 0 0 50%;
@@ -60,3 +63,4 @@ export const SCCol_8 = styled.div`
     max-width: 75%;
     padding-left: 50px;
 `
+
