@@ -53,7 +53,7 @@ const listCounters = [
 
 const Navbar = () => {
 
-  const handleChange = () => {}
+  const handleChange = () => { }
 
   return (
     <NavStyle.SCGridNav>
@@ -74,7 +74,6 @@ const Navbar = () => {
           <NavStyle.SCNavMenu>
             <img
               src="../assets/img/nav/Group 1091.png"
-              width={30}
               alt="logo"
             />
             <NavStyle.SCAvatarName>
@@ -84,7 +83,7 @@ const Navbar = () => {
           <NavStyle.SCNavList>
             {listChildMenu.map((item, idx) => (
               <NavStyle.SCNavItem key={idx}>
-                <img src={item.img} width={26} alt="logo" />
+                <img src={item.img} width={22} alt="logo" />
                 <NavStyle.SCNavChild>{item.name}</NavStyle.SCNavChild>
               </NavStyle.SCNavItem>
             ))}

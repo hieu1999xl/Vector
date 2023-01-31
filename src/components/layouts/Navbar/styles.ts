@@ -36,7 +36,7 @@ export const SCAvatarName = styled.span`
 
 `
 export const SCNavMenu = styled.div`
-    display: flex;
+    // display: flex;
     padding-top: 30px;
 `
 
