@@ -32,16 +32,25 @@ const Login = () => {
     letter-spacing: 0px;
     color: #575F6B;
   `
+  const IputLogin: any = styled.input`
+    text-indent: 30px;
+    width: 513px;
+    height: 80px;
+    background: transparent linear-gradient(277deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
+    box-shadow: -4px -4px 20px #FFFFFF;
+    border-radius: 40px;
+  `
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log(user, pwd);
     setUser('')
-    setUser('')
+    setPwd('')
   }
 
   return <>
+
     <LoginHead />
-    {/* <div style={{background: '#ededf2'}}> */}
+    <div style={{background: '#ececf1', height: '69vh'}}>
       <LoginStyleGl.SCGrid>
         <LoginStyleGl.SCRow>
           <LoginStyleGl.SCCol_5 >
@@ -52,15 +61,13 @@ const Login = () => {
               <Tittle>Login</Tittle>
               <form className="form" onSubmit={handleSubmit}>
                 <div className="input-group">
-                  <label htmlFor="email">Email</label>
-                  <input type="text" name="email" placeholder="example@email.com"
-                    onChange={(e) => setUser(e.target.value)}
+                  <IputLogin type="text" name="email" placeholder="Enter Username"
+                    onChange={(e: any) => setUser(e.target.value)}
                     value={user}
                   />
                 </div>
                 <div className="input-group">
-                  <label htmlFor="password">Password</label>
-                  <input type="password" name="password" onChange={(e) => setPwd(e.target.value)}
+                  <IputLogin type="password" name="password" placeholder="Enter Password" onChange={(e: any) => setPwd(e.target.value)}
                     value={pwd} />
                 </div>
                 <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
@@ -75,7 +82,7 @@ const Login = () => {
           </LoginStyleGl.SCCol_4>
         </LoginStyleGl.SCRow>
       </LoginStyleGl.SCGrid>
-    {/* </div> */}
+    </div>
     
   </>
 }

@@ -6,9 +6,31 @@
 
 .input-group {
   margin-bottom: 26px;
+  position: relative;
 }
 .input-group:nth-last-child(-n + 2) {
   margin-bottom: 50px;
+}
+.input-group::before {
+    font-size: 20px;
+    position: absolute;
+    left: 75px;
+    top: 10px;
+    color: #888888;
+    content: " ";
+    display: block;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.input-group:nth-child(1)::before {
+  background-image: url(../../../../public/assets/img/usericon.png);
+  width: 20px;
+  height: 20px;
+}
+.input-group:nth-child(2)::before {
+  background-image: url(../../../../public/assets/img/Key.png);
+  width: 20px;
+  height: 20px;
 }
 .input-group > label,
 .input-group > input {
@@ -21,6 +43,15 @@
   color: #676767;
   display: inline-block;
   margin-bottom: 5px;
+}
+.form-field {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
 }
 .input-group > input {
   background: #f2f2f5;
@@ -44,11 +75,6 @@
 
 .changepw {
   padding: 20px;
-}
-
-div > span {
-  font-family: 'Open Sans', sans-serif;
-  padding-top: 15px;
 }
 
 button.primary {
