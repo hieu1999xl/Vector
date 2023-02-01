@@ -13,24 +13,24 @@ import  ContentLogin from "../../../components/commons/ContentLogin";
 const Login = () => {
   const [user, setUser] = useState('')
   const [pwd, setPwd] = useState('')
-  const userRef = useRef();
-  const passwordRef = useRef();
   const navigate = useNavigate()
 
   const App: any = styled.div`  
-                background: #f7fafc;
-                border-radius: 4px;
-                box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+                // background: #f7fafc;
+                // border-radius: 4px;
+                // box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
                 max-width: 615px;
-                padding-bottom: 66px;
-                padding-top: 46px;
+                // padding-bottom: 66px;
+                // padding-top: 46px;
                 text-align: center;
+                border-left: 1px solid #c9c1c1;
                 width: 90%;
             `;
   const Tittle: any = styled.h1`
     font: normal normal medium 30px/39px Roboto;
     letter-spacing: 0px;
     color: #575F6B;
+    height: 39px;
   `
   const IputLogin: any = styled.input`
     text-indent: 30px;
@@ -70,14 +70,12 @@ const Login = () => {
                   <IputLogin type="password" name="password" placeholder="Enter Password" onChange={(e: any) => setPwd(e.target.value)}
                     value={pwd} />
                 </div>
-                <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
                 <div className="changepw">
-                  <Link to={"/changepassword"}> Quên mật khẩu</Link>
+                  <Link to={"/change_password"}> Forgot Password ? </Link>
                 </div>
+                <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
+                
               </form>
-              <LoginStyle.SCButtonLogin className="secondary" onClick={() => navigate("/register")}>
-                Đăng kí
-              </LoginStyle.SCButtonLogin>
             </App>
           </LoginStyleGl.SCCol_4>
         </LoginStyleGl.SCRow>
