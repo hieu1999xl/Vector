@@ -8,6 +8,8 @@ const LoginHead = () => {
           <TextHead>
             Welcome to a seamless, end to end supply chain management system
           </TextHead>
+          <img src="../assets/img/arrow.png" alt="" style={{position : 'absolute', right: '-5px', bottom: '-50px'}}/>
+          <img src="../assets/img/arrow2.png" alt="" style={{position : 'absolute', left: '-55px', bottom: '-400px'}}/>
         </LogoHead>
         
       </BgHead>
@@ -22,6 +24,7 @@ const BgHead = styled.div`
   height : 273px
 `;
 const LogoHead = styled.div`
+  position : relative;
   display: flex;
   align-items: center;
   justify-content: center;
