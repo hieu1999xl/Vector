@@ -64,7 +64,7 @@ const Navbar = () => {
       name: 'Inter Store Transfer',
       img: '../assets/img/nav/Group 1091.png',
       url: '',
-      status: false,
+      status: true,
       child: [
         {
           name: "Manual Upload",

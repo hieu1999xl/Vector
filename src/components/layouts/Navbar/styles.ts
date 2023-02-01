@@ -49,9 +49,6 @@ export const SCNavName = styled.span`
 `
 
 export const SCNavChild = styled.span`
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: ${globalStyles.secondaryColor};
     padding-left: 18px;
     line-height: 24px;
     text-transform: capitalize;
@@ -143,16 +140,19 @@ export const SCMenuItem = styled.div<{ active: true | false }>`
   cursor: pointer;
 `
 export const SCItemChild = styled.div<{ active: true | false, status: true | false }>`
-  color: ${props => (props.active ? '#929292' : '#000000')};
+  color: ${props => (props.active ? '#000000' : '#929292')};
+  background-color:  ${props => (props.active ? '#D8D8D8' : '')};
   font-size: 1.8rem;
-    font-weight: 300;
-    padding-left: 18px;
-    line-height: 24px;
-    text-transform: capitalize;
+  font-weight:  ${props => (props.active ? '500' : '300')};
+  border-radius:  ${props => (props.active ? '20px' : '')};
+  /* padding: ${props => (props.active ? '10px' : '0')}; */
   overflow: hidden;
   transition: height 0.3s;
   height: ${props => (props.status ? '24px' : '0px')};
   margin: ${props => (props.status ? '12px 0px' : '0px')};
+  padding: ${props => (props.status ? '18px 25px' : 'unset')};
+  display: flex;
+  align-items: center;
 `
 export const SCLogoutBtn = styled.div`
   font-weight: 600;
