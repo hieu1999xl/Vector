@@ -15,6 +15,9 @@ const ManualUpload = () => {
           Upload File
         </ManualStyle.SCManualText>
         <ManualStyle.SCManualDrag>
+          <ManualStyle.SCManualExcel>
+            <img src="../assets/img/manual/excel.png" />
+          </ManualStyle.SCManualExcel>
           <ManualStyle.SCManualDragText>
             Drag & Drop Your File Here
           </ManualStyle.SCManualDragText>
@@ -22,10 +25,11 @@ const ManualUpload = () => {
             <ManualStyle.SCManualDowloadText>
               Download Manual IST Template
             </ManualStyle.SCManualDowloadText>
+            <img src="../assets/img/manual/Group 473.png" height="100%" />
           </ManualStyle.SCManualDowload>
           <ManualStyle.SCManualUpload>
             <ManualStyle.SCManualUploadButton>
-              +
+              <img src="../assets/img/manual/plus.png" />
             </ManualStyle.SCManualUploadButton>
             <ManualStyle.SCManualUploadText>
               Click here to upload new file
@@ -33,6 +37,7 @@ const ManualUpload = () => {
           </ManualStyle.SCManualUpload>
         </ManualStyle.SCManualDrag>
         <ManualStyle.SCManualUploadBtn>
+          <img src="../assets/img/manual/iconmonstr-upload-17.svg" style={{ paddingRight: 12 }} />
           Upload
         </ManualStyle.SCManualUploadBtn>
       </ManualStyle.SCManualBox>

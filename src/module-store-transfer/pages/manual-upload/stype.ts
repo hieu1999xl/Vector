@@ -5,7 +5,7 @@ import * as GridSystem from "../../../styles/gridSystem"
 
 export const SCManualBoxCenter = styled.div`
  @media (min-width: ${GridSystem.size.laptopL}) {
-        margin-top: 100px;
+        margin-top: 60px;
       }
 
 `
@@ -37,7 +37,12 @@ export const SCManualDrag = styled.div`
   margin-bottom: 60px;
   width: 100%;
   max-width: 778px;
+`
 
+export const SCManualExcel = styled.div`
+  display: flex;
+  justify-content: center;
+  padding-bottom: 18px;
 `
 
 export const SCManualDragText = styled.p`
@@ -56,6 +61,7 @@ export const SCManualDowload = styled.div`
 export const SCManualDowloadText = styled.p`
   font-size: 1.8rem;
   padding-bottom: 70px;
+  padding-right: 10px;
 `
 
 export const SCManualUpload = styled.div`
