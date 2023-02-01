@@ -78,10 +78,16 @@
 }
 
 button.primary {
-  background: #820f4c;
+  background: transparent linear-gradient(280deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
+  box-shadow: -6px -6px 30px #FFFFFF;
+  border-radius: 40px;
+  width: 324px;
+  height: 70px;
+  color: #575F6B;
 }
 button.primary:hover {
   background: #460224;
+  color: #FFFFFF;
 }
 button.secondary {
   background: #c1d7aa;
