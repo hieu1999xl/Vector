@@ -5,11 +5,16 @@ import "./style.ts";
 import * as LoginStyle from './style'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
-import { useState } from "react";
+import LoginHead from "../../../components/commons/LoginHead";
+import { useRef, useState } from "react";
+import * as LoginStyleGl from '../../../styles/gridSystem'
+import  ContentLogin from "../../../components/commons/ContentLogin";
 
 const Login = () => {
   const [user, setUser] = useState('')
   const [pwd, setPwd] = useState('')
+  const userRef = useRef();
+  const passwordRef = useRef();
   const navigate = useNavigate()
 
   const App: any = styled.div`  
@@ -22,8 +27,10 @@ const Login = () => {
                 text-align: center;
                 width: 90%;
             `;
-  const Img: any = styled.img`
-    max-width: 90%;
+  const Tittle: any = styled.h1`
+    font: normal normal medium 30px/39px Roboto;
+    letter-spacing: 0px;
+    color: #575F6B;
   `
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -33,30 +40,43 @@ const Login = () => {
   }
 
   return <>
-    <App>
-      <Img src="../assets/img/logo.png" alt="" />
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="input-group">
-          <label htmlFor="email">Email</label>
-          <input type="text" name="email" placeholder="example@email.com"
-            onChange={(e) => setUser(e.target.value)}
-            value={user}
-          />
-        </div>
-        <div className="input-group">
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" onChange={(e) => setPwd(e.target.value)}
-            value={pwd} />
-        </div>
-        <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
-        <div className="changepw">
-          <Link to={"/changepassword"}> Quên mật khẩu</Link>
-        </div>
-      </form>
-      <LoginStyle.SCButtonLogin className="secondary" onClick={() => navigate("/register")}>
-        Đăng kí
-      </LoginStyle.SCButtonLogin>
-    </App>
+    <LoginHead />
+    {/* <div style={{background: '#ededf2'}}> */}
+      <LoginStyleGl.SCGrid>
+        <LoginStyleGl.SCRow>
+          <LoginStyleGl.SCCol_5 >
+            <ContentLogin />
+          </LoginStyleGl.SCCol_5>
+          <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <App>
+              <Tittle>Login</Tittle>
+              <form className="form" onSubmit={handleSubmit}>
+                <div className="input-group">
+                  <label htmlFor="email">Email</label>
+                  <input type="text" name="email" placeholder="example@email.com"
+                    onChange={(e) => setUser(e.target.value)}
+                    value={user}
+                  />
+                </div>
+                <div className="input-group">
+                  <label htmlFor="password">Password</label>
+                  <input type="password" name="password" onChange={(e) => setPwd(e.target.value)}
+                    value={pwd} />
+                </div>
+                <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
+                <div className="changepw">
+                  <Link to={"/changepassword"}> Quên mật khẩu</Link>
+                </div>
+              </form>
+              <LoginStyle.SCButtonLogin className="secondary" onClick={() => navigate("/register")}>
+                Đăng kí
+              </LoginStyle.SCButtonLogin>
+            </App>
+          </LoginStyleGl.SCCol_4>
+        </LoginStyleGl.SCRow>
+      </LoginStyleGl.SCGrid>
+    {/* </div> */}
+    
   </>
 }
 
