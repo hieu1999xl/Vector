@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { NotFound, DataLoading, Pagination } from '../../../components';
 import { useSearchParameters } from '../../../hooks';
-import * as ManualStyle from './stype'
+import * as ManualStyle from './styles'
 import { ButtonNormal } from '../../../components';
 
 const ManualUpload = () => {
