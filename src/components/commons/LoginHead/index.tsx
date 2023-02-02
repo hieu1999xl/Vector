@@ -8,7 +8,7 @@ const LoginHead = () => {
           <TextHead>
             Welcome to a seamless, end to end supply chain management system
           </TextHead>
-          <img src="../assets/img/arrow.png" alt="" style={{position : 'absolute', right: '-5px', bottom: '-50px'}}/>
+          <img src="../assets/img/arrow.png" alt="" style={{position : 'absolute', right: '50px', bottom: '-50px'}}/>
           <img src="../assets/img/arrow2.png" alt="" style={{position : 'absolute', left: '-55px', bottom: '-400px'}}/>
         </LogoHead>
         

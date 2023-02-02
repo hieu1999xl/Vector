@@ -29,6 +29,7 @@ const Login = () => {
   const Tittle: any = styled.h1`
     font: normal normal medium 30px/39px Roboto;
     letter-spacing: 0px;
+    padding-bottom: 20px;
     color: #575F6B;
     height: 39px;
   `
@@ -37,10 +38,11 @@ const Login = () => {
     text-indent: 60px;
     width: 513px;
     height: 80px;
-    background: transparent linear-gradient(277deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
-    box-shadow: -4px -4px 20px #FFFFFF;
+    background: #f0f1f4;
+    box-shadow: -4px -4px 20px #bbb7b7;
     border-radius: 40px;
     overflow: hidden;
+    
   `
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -52,9 +54,9 @@ const Login = () => {
   return <>
 
     <LoginHead />
-    <div style={{background: '#ececf1', height: '69vh'}}>
-      <LoginStyleGl.SCGrid>
-        <LoginStyleGl.SCRow>
+    <div style={{background: '#ececf1', height: 'calc(100vh - 273px)'}}>
+      <LoginStyleGl.SCGrid style={{ height: '100%'}}>
+        <LoginStyleGl.SCRow style={{ height: '100%'}}>
           <LoginStyleGl.SCCol_5 >
             <ContentLogin />
           </LoginStyleGl.SCCol_5>
@@ -72,10 +74,21 @@ const Login = () => {
                   <IputLogin type="password" name="password" placeholder="Enter Password" onChange={(e: any) => setPwd(e.target.value)}
                     value={pwd} />
                 </div>
-                <div className="changepw">
-                  <Link to={"/change_password"}> Forgot Password ? </Link>
+                <div className="keep-signin">
+                  <div>
+                    <input type="checkbox" id="checkbox-1-1" className="custom-checkbox" />
+                    <label htmlFor="checkbox-1-1" className="keep-me">Keep Me Signed In</label>
+                  </div>
+
+                  <div className="changepw">
+                    <Link to={"/change_password"} className="forgot-pass"> Forgot Password ? </Link>
+                  </div>
                 </div>
-                <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
+                <LoginStyle.SCButtonLogin className="primary">Submit
+                  {/* <svg xmlns="http://www.w3.org/2000/svg" width="15.582" height="15.582" viewBox="0 0 15.582 15.582">
+                    <path id="Icon_ionic-md-arrow-forward" data-name="Icon ionic-md-arrow-forward" d="M5.977,14.741H17.809l-5.454,5.454,1.412,1.363,7.791-7.791L13.767,5.977,12.4,7.34l5.4,5.454H5.977Z" transform="translate(-5.977 -5.977)" fill="#575f6b"/>
+                  </svg> */}
+                </LoginStyle.SCButtonLogin>
                 
               </form>
             </App>
