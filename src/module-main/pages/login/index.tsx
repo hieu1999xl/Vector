@@ -6,15 +6,35 @@ import * as LoginStyle from './style'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import  ContentLogin from "../../../components/commons/ContentLogin";
+import { useMutation } from "@tanstack/react-query";
+import http from "src/untils/http";
+import { LoginRequest } from "src/module-main/types";
 
 const Login = () => {
-  const [user, setUser] = useState('')
-  const [pwd, setPwd] = useState('')
-  const navigate = useNavigate()
 
+  const form = useForm<LoginRequest>({
+    defaultValues: {
+      email: '',
+      password: '',
+    },
+  });
+  const { register, control, handleSubmit, getValues } = form;
+
+  const { mutate } = useMutation({
+    mutationFn: (body) => {
+      return http.post('api/user/login/', body)
+    }
+  })
+
+  const onSave = () => {
+    const formData = getValues();
+    console.log('formData', formData);
+    // mutate(formData)
+  };
+  
   const App: any = styled.div`  
                 // background: #f7fafc;
                 // border-radius: 4px;
@@ -44,13 +64,7 @@ const Login = () => {
     overflow: hidden;
     
   `
-  const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    console.log(user, pwd);
-    setUser('')
-    setPwd('')
-  }
-
+  
   return <>
 
     <LoginHead />
@@ -63,16 +77,13 @@ const Login = () => {
           <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <App>
               <Tittle>Login</Tittle>
-              <form className="form" onSubmit={handleSubmit}>
+              <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <IputLogin type="text" name="email" placeholder="Enter Username"
-                    onChange={(e: any) => setUser(e.target.value)}
-                    value={user}
+                  <IputLogin type="email" {...register("email")}  placeholder="Enter Username"
                   />
                 </div>
                 <div className="input-group">
-                  <IputLogin type="password" name="password" placeholder="Enter Password" onChange={(e: any) => setPwd(e.target.value)}
-                    value={pwd} />
+                  <IputLogin type="password" {...register("password")} placeholder="Enter Password" />
                 </div>
                 <div className="keep-signin">
                   <div>
