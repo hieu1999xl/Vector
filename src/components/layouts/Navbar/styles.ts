@@ -19,7 +19,7 @@ export const SCNavbar = styled.div`
 export const SCProfile = styled.div`
     display: flex;
     justify-content: space-between;
-    padding-bottom: 20px;
+    padding-bottom: 16px;
     border-bottom: 3px solid #f9f9f9;
 `
 
@@ -49,10 +49,8 @@ export const SCNavName = styled.span`
 `
 
 export const SCNavChild = styled.span`
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: ${globalStyles.secondaryColor};
     padding-left: 18px;
+    line-height: 24px;
     text-transform: capitalize;
 
 `
@@ -70,7 +68,7 @@ export const SCNavItem = styled.li`
     display: flex;
     align-items: center;
     list-style: none;
-    padding: 12px 0;
+    padding: 8px 0;
     cursor: pointer;
 `
 export const SCCount = styled.div`
@@ -102,6 +100,7 @@ export const SCNavCountItem = styled.li`
     justify-content: space-between;
     font-size: 1.5rem;
     font-weight:  500;
+    line-height: 21px;
     padding: 8px 0;
     list-style: none;
 
@@ -113,13 +112,14 @@ export const SCNavCountFooter = styled.div`
     color: ${globalStyles.white};
     background-color: ${globalStyles.black};
     font-size: 1.5rem;
+    line-height: 21px;
     font-weight:  500;
     display: flex;
     justify-content: space-between;
 `
 
 export const SCNavLogout = styled.div`
-    padding-top: 30px;
+    padding-top: 20px;
     display: flex;
     align-items: center;
 `
@@ -127,5 +127,34 @@ export const SCNavLogoutText = styled.span`
     font-size: 1.8rem;
     font-weight:  500;
     padding-left: 16px;
-    color: #52575D
+    color: #52575D;
+`
+export const SCMenuLeft = styled.div`
+  padding: 5px 10px;
+  background-color: #fff;
+  border-radius: 10px;
+`
+export const SCMenuItem = styled.div<{ active: true | false }>`
+  color: ${props => (props.active ? '#0a58ca' : '#495057')};
+  font-weight: 600;
+  cursor: pointer;
+`
+export const SCItemChild = styled.div<{ active: true | false, status: true | false }>`
+  color: ${props => (props.active ? '#000000' : '#929292')};
+  background-color:  ${props => (props.active ? '#D8D8D8' : '')};
+  font-size: 1.8rem;
+  font-weight:  ${props => (props.active ? '500' : '300')};
+  border-radius:  ${props => (props.active ? '20px' : '')};
+  /* padding: ${props => (props.active ? '10px' : '0')}; */
+  overflow: hidden;
+  transition: height 0.3s;
+  height: ${props => (props.status ? '24px' : '0px')};
+  margin: ${props => (props.status ? '12px 0px' : '0px')};
+  padding: ${props => (props.status ? '18px 25px' : 'unset')};
+  display: flex;
+  align-items: center;
+`
+export const SCLogoutBtn = styled.div`
+  font-weight: 600;
+  cursor: pointer;
 `

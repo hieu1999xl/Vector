@@ -1,32 +1,9 @@
 import * as NavStyle from './styles'
 import { ButtonNormal } from '../../index'
+import { useState } from 'react';
+import { SCMenuLeft, SCMenuItem, SCItemChild, SCLogoutBtn } from './styles'
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const listChildMenu = [
-  {
-    name: "Manual Upload",
-    img: "../assets/img/nav/upload.png",
-  },
-  {
-    name: "Pending IST Requests",
-    img: "../assets/img/nav/files.png",
-  },
-  {
-    name: "IST Status",
-    img: "../assets/img/nav/status.png",
-  },
-  {
-    name: "IST Forced Closure",
-    img: "../assets/img/nav/Icon-Close-O.png",
-  },
-  {
-    name: "Store Status",
-    img: "../assets/img/nav/stores.png",
-  },
-  {
-    name: "Availability Comparison",
-    img: "../assets/img/nav/status.png",
-  },
-];
 
 const listCounters = [
   {
@@ -53,6 +30,92 @@ const listCounters = [
 
 const Navbar = () => {
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [listMenu, setListMenu] = useState([
+    {
+      id: 1,
+      name: 'Inter Store Transfer',
+      img: '../assets/img/nav/Group 1091.png',
+      url: '',
+      status: true,
+      child: [
+        {
+          name: "Manual Upload",
+          img: "../assets/img/nav/upload.png",
+          url: '/'
+        },
+        {
+          name: "Pending IST Requests",
+          img: "../assets/img/nav/files.png",
+          url: '/ist'
+        },
+        {
+          name: "IST Status",
+          img: "../assets/img/nav/status.png",
+          url: '/manual2'
+        },
+        {
+          name: "IST Forced Closure",
+          img: "../assets/img/nav/Icon-Close-O.png",
+          url: '/manual3'
+        },
+        {
+          name: "Store Status",
+          img: "../assets/img/nav/stores.png",
+          url: '/manual4'
+        },
+        {
+          name: "Availability Comparison",
+          img: "../assets/img/nav/status.png",
+          url: '/manual5'
+        },
+      ]
+    },
+  ])
+  const renderListMenu = (listMenu: any) => {
+    return listMenu.map((item: any) => {
+      return <SCMenuItem key={item.id} active={item.url === location.pathname || item.child.some((i: any) => i.url === location.pathname)}>
+        {
+          item.child.length > 0 ? (
+            <>
+              <NavStyle.SCNavMenu onClick={() => activeCollapseItem(item.id)}>
+                <img src={item.img} width={22} alt="logo" />
+                <NavStyle.SCAvatarName>
+                  {item.name}
+                </NavStyle.SCAvatarName>
+              </NavStyle.SCNavMenu>
+              {renderListMenuChild(item.child, item.status)}
+            </>
+          ) : (
+            <NavStyle.SCNavMenu onClick={() => navigate(item.url)}>
+              <img src={item.img} width={22} alt="logo" />
+              <NavStyle.SCAvatarName>
+                {item.name}
+              </NavStyle.SCAvatarName>
+            </NavStyle.SCNavMenu>
+          )
+        }
+      </SCMenuItem>
+    })
+  }
+  const renderListMenuChild = (listChild: any, status: boolean) => {
+    return listChild.map((item: any) => {
+      return <SCItemChild key={item.url} onClick={() => navigate(item.url)} active={item.url === location.pathname} status={status}>
+        <img src={item.img} width={22} alt="logo" />
+        <NavStyle.SCNavChild>  {item.name}</NavStyle.SCNavChild>
+
+      </SCItemChild>
+    })
+  }
+  const activeCollapseItem = (id: any) => {
+    const index = listMenu.findIndex(item => item.id === id);
+    const temp = [...listMenu];
+    temp[index].status = !temp[index].status;
+    setListMenu(temp);
+  }
+
+
   const handleChange = () => { }
 
   return (
@@ -71,23 +134,11 @@ const Navbar = () => {
           <ButtonNormal onChange={handleChange} text="Brand Manager" />
         </NavStyle.SCProfile>
         <NavStyle.SCNavBox>
-          <NavStyle.SCNavMenu>
-            <img
-              src="../assets/img/nav/Group 1091.png"
-              alt="logo"
-            />
-            <NavStyle.SCAvatarName>
-              Inter Store Transfer
-            </NavStyle.SCAvatarName>
-          </NavStyle.SCNavMenu>
-          <NavStyle.SCNavList>
-            {listChildMenu.map((item, idx) => (
-              <NavStyle.SCNavItem key={idx}>
-                <img src={item.img} width={22} alt="logo" />
-                <NavStyle.SCNavChild>{item.name}</NavStyle.SCNavChild>
-              </NavStyle.SCNavItem>
-            ))}
-          </NavStyle.SCNavList>
+          <SCMenuLeft>
+            {
+              renderListMenu(listMenu)
+            }
+          </SCMenuLeft>
         </NavStyle.SCNavBox>
         <NavStyle.SCCount>
           <NavStyle.SCNavCount>
@@ -105,8 +156,8 @@ const Navbar = () => {
             </NavStyle.SCNavCountList>
           </NavStyle.SCNavCount>
           <NavStyle.SCNavCountFooter>
-            <span>Incremental Benefits</span>
-            <span>0.4/80 Lakhs</span>
+            <p>Incremental Benefits</p>
+            <p>0.4/80 Lakhs</p>
           </NavStyle.SCNavCountFooter>
         </NavStyle.SCCount>
         <NavStyle.SCNavLogout>
