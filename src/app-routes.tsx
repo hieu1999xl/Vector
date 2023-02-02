@@ -39,18 +39,18 @@ export const initRoutes = (): RouteObject[] => {
       children: [
         {
           index: true,
-          element: lazyLoad(<Home />),
+          element: lazyLoad(<ManualUpload />),
         },
         ...getStoreTransferModuleRoutes()
       ],
     },
     {
-      path: '/manual',
+      path: '/ist',
       element: <AppLayout />,
       children: [
         {
           index: true,
-          element: lazyLoad(<ManualUpload />),
+          element: lazyLoad(<Home />),
         },
         ...getStoreTransferModuleRoutes()
       ],

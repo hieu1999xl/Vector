@@ -5,7 +5,6 @@ const Home = () => {
     <>
       <Table />
       <Table />
-      <Table />
     </>
   )
 }

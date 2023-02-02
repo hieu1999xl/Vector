@@ -4,32 +4,6 @@ import { useState } from 'react';
 import { SCMenuLeft, SCMenuItem, SCItemChild, SCLogoutBtn } from './styles'
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const listChildMenu = [
-  {
-    name: "Manual Upload",
-    img: "../assets/img/nav/upload.png",
-  },
-  {
-    name: "Pending IST Requests",
-    img: "../assets/img/nav/files.png",
-  },
-  {
-    name: "IST Status",
-    img: "../assets/img/nav/status.png",
-  },
-  {
-    name: "IST Forced Closure",
-    img: "../assets/img/nav/Icon-Close-O.png",
-  },
-  {
-    name: "Store Status",
-    img: "../assets/img/nav/stores.png",
-  },
-  {
-    name: "Availability Comparison",
-    img: "../assets/img/nav/status.png",
-  },
-];
 
 const listCounters = [
   {
@@ -69,12 +43,12 @@ const Navbar = () => {
         {
           name: "Manual Upload",
           img: "../assets/img/nav/upload.png",
-          url: '/manual'
+          url: '/'
         },
         {
           name: "Pending IST Requests",
           img: "../assets/img/nav/files.png",
-          url: '/'
+          url: '/ist'
         },
         {
           name: "IST Status",
@@ -160,24 +134,6 @@ const Navbar = () => {
           <ButtonNormal onChange={handleChange} text="Brand Manager" />
         </NavStyle.SCProfile>
         <NavStyle.SCNavBox>
-          {/* <NavStyle.SCNavMenu>
-            <img
-              src="../assets/img/nav/Group 1091.png"
-              alt="logo"
-            />
-            <NavStyle.SCAvatarName>
-              Inter Store Transfer
-            </NavStyle.SCAvatarName>
-          </NavStyle.SCNavMenu>
-          <NavStyle.SCNavList>
-  
-            {listChildMenu.map((item, idx) => (
-              <NavStyle.SCNavItem key={idx}>
-                <img src={item.img} width={22} alt="logo" />
-                <NavStyle.SCNavChild>{item.name}</NavStyle.SCNavChild>
-              </NavStyle.SCNavItem>
-            ))}
-          </NavStyle.SCNavList> */}
           <SCMenuLeft>
             {
               renderListMenu(listMenu)

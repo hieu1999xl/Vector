@@ -16,6 +16,7 @@ export const SCHeaderText = styled.p`
 
 export const SCHeaderContent = styled.div`
   display: flex;
+  align-items: center;
 `
 
 export const SCHeaderWelcome = styled.p`
