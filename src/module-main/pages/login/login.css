@@ -74,7 +74,7 @@ button.primary {
   width: 324px;
   height: 70px;
   color: #575F6B;
-  /* margin-bottom: 50px; */
+  margin-bottom: 30px;
 }
 button.primary:hover {
   background: #460224;
@@ -132,4 +132,7 @@ button.secondary:hover {
   color: #707070;
   font-size: 15px;
   text-decoration: none;
+}
+.submit-icon {
+  padding-left: 15px;
 }
