@@ -33,12 +33,14 @@ const Login = () => {
     height: 39px;
   `
   const IputLogin: any = styled.input`
-    text-indent: 30px;
+    border: none;
+    text-indent: 60px;
     width: 513px;
     height: 80px;
     background: transparent linear-gradient(277deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
     box-shadow: -4px -4px 20px #FFFFFF;
     border-radius: 40px;
+    overflow: hidden;
   `
   const handleSubmit = async (e: any) => {
     e.preventDefault();
