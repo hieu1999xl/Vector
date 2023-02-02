@@ -68,8 +68,8 @@
 }
 
 button.primary {
-  background: transparent linear-gradient(280deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
-  box-shadow: -6px -6px 30px #FFFFFF;
+  background: #f0f1f4;
+  box-shadow: -6px -6px 30px #bbb7b7;
   border-radius: 40px;
   width: 324px;
   height: 70px;

@@ -29,6 +29,7 @@ const Login = () => {
   const Tittle: any = styled.h1`
     font: normal normal medium 30px/39px Roboto;
     letter-spacing: 0px;
+    padding-bottom: 20px;
     color: #575F6B;
     height: 39px;
   `
@@ -37,8 +38,8 @@ const Login = () => {
     text-indent: 60px;
     width: 513px;
     height: 80px;
-    background: transparent linear-gradient(277deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
-    box-shadow: -4px -4px 20px #FFFFFF;
+    background: #f0f1f4;
+    box-shadow: -4px -4px 20px #bbb7b7;
     border-radius: 40px;
     overflow: hidden;
   `
