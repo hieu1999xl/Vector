@@ -42,6 +42,7 @@ const Login = () => {
     box-shadow: -4px -4px 20px #bbb7b7;
     border-radius: 40px;
     overflow: hidden;
+    
   `
   const handleSubmit = async (e: any) => {
     e.preventDefault();
@@ -53,7 +54,7 @@ const Login = () => {
   return <>
 
     <LoginHead />
-    <div style={{background: '#ececf1', height: '69vh'}}>
+    <div style={{background: '#ececf1', height: 'calc(100vh - 273px)'}}>
       <LoginStyleGl.SCGrid>
         <LoginStyleGl.SCRow>
           <LoginStyleGl.SCCol_5 >
@@ -73,8 +74,15 @@ const Login = () => {
                   <IputLogin type="password" name="password" placeholder="Enter Password" onChange={(e: any) => setPwd(e.target.value)}
                     value={pwd} />
                 </div>
-                <div className="changepw">
-                  <Link to={"/change_password"}> Forgot Password ? </Link>
+                <div className="keep-signin">
+                  <div>
+                    <input type="checkbox" id="checkbox-1-1" className="custom-checkbox" />
+                    <label htmlFor="checkbox-1-1" className="keep-me">Keep Me Signed In</label>
+                  </div>
+
+                  <div className="changepw">
+                    <Link to={"/change_password"} className="forgot-pass"> Forgot Password ? </Link>
+                  </div>
                 </div>
                 <LoginStyle.SCButtonLogin className="primary">Submit</LoginStyle.SCButtonLogin>
                 

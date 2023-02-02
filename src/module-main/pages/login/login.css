@@ -64,7 +64,7 @@
 }
 
 .changepw {
-  padding: 20px;
+  padding-top: 5px;
 }
 
 button.primary {
@@ -74,6 +74,7 @@ button.primary {
   width: 324px;
   height: 70px;
   color: #575F6B;
+  /* margin-bottom: 50px; */
 }
 button.primary:hover {
   background: #460224;
@@ -84,4 +85,51 @@ button.secondary {
 }
 button.secondary:hover {
   background: #a8c787;
+}
+.keep-signin {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+  margin-top: 45px;
+}
+.custom-checkbox {
+  -webkit-appearance: none;
+  background: #f0f1f4;
+  box-shadow: -4px -4px 20px #bbb7b7;
+  padding: 8px;
+  border-radius: 2px;
+  display: inline-block;
+  position: relative;
+  top: 6px;
+  right: 15px;
+}
+
+.custom-checkbox:checked {
+  background-color: white;
+}
+
+.custom-checkbox:checked:after {
+  content: '\2714';
+  font-size: 15px;
+  position: absolute;
+  top: -2px;
+  left: 2px;
+  color: #565e6a;
+}
+.keep-me {
+  font: normal normal medium 16px/21px Roboto;
+  letter-spacing: 0px;
+  color: #707070;
+  font-size: 15px;
+}
+
+.custom-checkbox:focus {
+  outline: none;
+}
+.forgot-pass {
+  font: normal normal medium 16px/21px Roboto;
+  letter-spacing: 0px;
+  color: #707070;
+  font-size: 15px;
+  text-decoration: none;
 }
