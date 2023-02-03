@@ -12,5 +12,9 @@ export { default as DataLoading } from './commons/DataLoading';
 export { default as SearchInput } from './commons/SearchInput';
 export { default as ButtonNormal } from './commons/ButtonNormal';
 export { default as Table } from './commons/Table';
+export { default as SelectInput } from './commons/SelectInput';
+export { default as ButtonOutline} from './commons/ButtonOutline';
+export { default as SwitchButton} from './commons/SwitchButton';
+
 
 
