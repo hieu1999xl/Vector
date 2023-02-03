@@ -28,6 +28,7 @@ export const SCLocationFilter = styled.div`
 export const SCProductBoxSelect = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 `
 
 export const SCProducFilterHeader = styled.div`
@@ -41,4 +42,20 @@ export const SCProductFilterText = styled.p`
   line-height: 2.6rem;
   font-weight: 500;
   padding-left: 18px;
+`
+
+export const SCQuickFilters = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const SCQuickFilterBox = styled.div`
+  padding: 0 30px;
+  display: flex;
+  align-items: center;
+  border-right: 2px solid #D8D8D8 ;
+`
+
+export const SCQuickFiltersText = styled.p`
+  font-size: 2rem;
+  font-weight: 500;
 `
