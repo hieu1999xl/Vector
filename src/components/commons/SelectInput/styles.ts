@@ -3,6 +3,7 @@ import * as globalStyles from "../../../styles/global"
 
 export const SCSellectOption = styled.div`
   position: relative;
+  margin: 5px;
 `
 
 export const SCSellectIcon = styled.img`

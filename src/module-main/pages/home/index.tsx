@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Table } from '../../../components/index'
 import { SelectInput } from '../../../components/index'
 import { ButtonNormal } from '../../../components/index'
+import { SCProductFilter, SCProducFilterHeader, SCProductBoxSelect, SCProductFilterText } from './styles'
 
 
 
@@ -29,15 +30,20 @@ const Home = () => {
 
   return (
     <>
-      <div>
-        <SelectInput name="brand" value={currentOption} handleChange={handleChangeSelect} items={brand} icon="target" />
-        <SelectInput name="subBrand" value={currentOption} handleChange={handleChangeSelect} items={subBrand} icon="target" />
-        <SelectInput name="test" value={currentOption} handleChange={handleChangeSelect} items={category} icon="option" />
-        <SelectInput name="category" value={currentOption} handleChange={handleChangeSelect} items={fit} icon="margin" />
-        <SelectInput name="style" value={currentOption} handleChange={handleChangeSelect} items={style} icon="margin" />
-        <SelectInput name="MRP" value={currentOption} handleChange={handleChangeSelect} items={mrp} icon="money" />
-      </div>
-      {/* <ButtonNormal text="a hi hi" onChange={onChange} /> */}
+      <SCProductFilter>
+        <SCProducFilterHeader>
+          <img src="../assets/img/ist/filter.svg" alt="filter" />
+          <SCProductFilterText>Product Filter</SCProductFilterText>
+        </SCProducFilterHeader>
+        <SCProductBoxSelect>
+          <SelectInput name="brand" value={currentOption} handleChange={handleChangeSelect} items={brand} icon="target" />
+          <SelectInput name="subBrand" value={currentOption} handleChange={handleChangeSelect} items={subBrand} icon="target" />
+          <SelectInput name="test" value={currentOption} handleChange={handleChangeSelect} items={category} icon="option" />
+          <SelectInput name="category" value={currentOption} handleChange={handleChangeSelect} items={fit} icon="margin" />
+          <SelectInput name="style" value={currentOption} handleChange={handleChangeSelect} items={style} icon="margin" />
+          <SelectInput name="MRP" value={currentOption} handleChange={handleChangeSelect} items={mrp} icon="money" />
+        </SCProductBoxSelect>
+      </SCProductFilter>
       <Table />
       <Table />
     </>
