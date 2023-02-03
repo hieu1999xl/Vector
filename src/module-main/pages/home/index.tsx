@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Table } from '../../../components/index'
-import { SelectInput, ButtonOutline } from '../../../components/index'
+import { SelectInput, ButtonOutline, SwitchButton } from '../../../components/index'
 import { ButtonNormal } from '../../../components/index'
 import { SCProductFilter, SCProducFilterHeader, SCProductBoxSelect, SCProductFilterText, SCLocationFilter, SCBoxFilter, SCQuickFilters, SCQuickFilterBox, SCQuickFiltersText } from './styles'
 
@@ -80,6 +80,9 @@ const Home = () => {
         <SCQuickFilterBox>
           <ButtonOutline text='Auto' onChange={onChange} />
           <ButtonOutline text='Manual' onChange={onChange} />
+        </SCQuickFilterBox>
+        <SCQuickFilterBox>
+          <SwitchButton />
         </SCQuickFilterBox>
       </SCQuickFilters>
       <Table />
