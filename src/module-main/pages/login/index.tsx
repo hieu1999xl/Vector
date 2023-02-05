@@ -6,64 +6,51 @@ import * as LoginStyle from './style'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import  ContentLogin from "../../../components/commons/ContentLogin";
 import { useMutation } from "@tanstack/react-query";
-import http from "src/untils/http";
+import http from "../../../untils/http";
 import { LoginRequest } from "src/module-main/types";
+import { toast } from 'react-toastify';
 
 const Login = () => {
+  const navigate = useNavigate()
+  const notify = (data: string) => toast.error(data, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    theme: "colored",
+    });
 
   const form = useForm<LoginRequest>({
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   });
   const { register, control, handleSubmit, getValues } = form;
 
   const { mutate } = useMutation({
-    mutationFn: (body) => {
-      return http.post('api/user/login/', body)
+    mutationFn: (body: LoginRequest) => {
+      return http.post('auth/login', body)
     }
   })
 
   const onSave = () => {
     const formData = getValues();
-    console.log('formData', formData);
-    // mutate(formData)
+    mutate(formData, {
+      onSuccess: () => {
+        navigate('/')
+      },
+      onError: (data) => {
+        // @ts-ignore: Unreachable code error
+        notify(data.response.data)
+      }
+    })
   };
-  
-  const App: any = styled.div`  
-                // background: #f7fafc;
-                // border-radius: 4px;
-                // box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
-                max-width: 615px;
-                // padding-bottom: 66px;
-                // padding-top: 46px;
-                text-align: center;
-                border-left: 1px solid #c9c1c1;
-                width: 90%;
-            `;
-  const Tittle: any = styled.h1`
-    font: normal normal medium 30px/39px Roboto;
-    letter-spacing: 0px;
-    padding-bottom: 20px;
-    color: #575F6B;
-    height: 39px;
-  `
-  const IputLogin: any = styled.input`
-    border: none;
-    text-indent: 60px;
-    width: 513px;
-    height: 80px;
-    background: #f0f1f4;
-    box-shadow: -4px -4px 20px #bbb7b7;
-    border-radius: 40px;
-    overflow: hidden;
-    
-  `
   
   return <>
 
@@ -79,7 +66,7 @@ const Login = () => {
               <Tittle>Login</Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <IputLogin type="email" {...register("email")}  placeholder="Enter Username"
+                  <IputLogin type="text" {...register("username")}  placeholder="Enter Username"
                   />
                 </div>
                 <div className="input-group">
@@ -110,5 +97,34 @@ const Login = () => {
     
   </>
 }
+const App: any = styled.div`  
+// background: #f7fafc;
+// border-radius: 4px;
+// box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+max-width: 615px;
+// padding-bottom: 66px;
+// padding-top: 46px;
+text-align: center;
+border-left: 1px solid #c9c1c1;
+width: 90%;
+`;
+const Tittle: any = styled.h1`
+font: normal normal medium 30px/39px Roboto;
+letter-spacing: 0px;
+padding-bottom: 20px;
+color: #575F6B;
+height: 39px;
+`
+const IputLogin: any = styled.input`
+border: none;
+text-indent: 60px;
+width: 513px;
+height: 80px;
+background: #f0f1f4;
+box-shadow: -4px -4px 20px #bbb7b7;
+border-radius: 40px;
+overflow: hidden;
+
+`
 
 export default Login

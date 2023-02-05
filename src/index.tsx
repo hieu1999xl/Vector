@@ -7,6 +7,8 @@ import { setupReactQuery } from './config/react-query-config';
 import App from './App';
 import { setupAxios } from './config/axios-config';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 //Axios default settings and interceptors
 setupAxios();
@@ -20,6 +22,7 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <Router>
         <App />
+        <ToastContainer />
       </Router>
     </QueryClientProvider>
   </React.StrictMode>
