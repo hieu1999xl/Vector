@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Table } from '../../../components/index'
-import { SelectInput, ButtonOutline, SwitchButton } from '../../../components/index'
+import { SelectInput, ButtonOutline, SwitchButton, Checkbox } from '../../../components/index'
 import { ButtonNormal } from '../../../components/index'
-import { SCProductFilter, SCProducFilterHeader, SCProductBoxSelect, SCProductFilterText, SCLocationFilter, SCBoxFilter, SCQuickFilters, SCQuickFilterBox, SCQuickFiltersText } from './styles'
+import { SCProductFilter, SCProducFilterHeader, SCProductBoxSelect, SCProductFilterText, SCLocationFilter, SCBoxFilter, SCQuickFilters, SCQuickFilterBox, SCQuickFiltersText, SCQuickAction, SCQuickActionSelect, SCQuickActionLabel, SCQuickActionSelectInput, SCQuickActionButton } from './styles'
 
 
 
@@ -71,6 +71,21 @@ const Home = () => {
         </SCLocationFilter>
       </SCBoxFilter>
       <SCQuickFilters>
+        <SCQuickAction>
+          <Checkbox name='action' value='action' onChange={onChange} />
+          <SCQuickActionSelect>
+            <SCQuickActionLabel >Select All For Action</SCQuickActionLabel>
+            <SCQuickActionSelectInput name="cars" id="cars">
+              <option value="volvo">Volvo</option>
+              <option value="saab">Saab</option>
+              <option value="opel">Opel</option>
+              <option value="audi">Audi</option>
+            </SCQuickActionSelectInput>
+          </SCQuickActionSelect>
+        </SCQuickAction>
+        <SCQuickFilterBox>
+          <SCQuickActionButton><img src="../assets/img/ist/White-Arrow.svg" alt="filter" /></SCQuickActionButton>
+        </SCQuickFilterBox>
         <SCQuickFilterBox>
           <SCQuickFiltersText>Quick Filters -</SCQuickFiltersText>
           <ButtonOutline text='Accepted' onChange={onChange} />
@@ -81,9 +96,7 @@ const Home = () => {
           <ButtonOutline text='Auto' onChange={onChange} />
           <ButtonOutline text='Manual' onChange={onChange} />
         </SCQuickFilterBox>
-        <SCQuickFilterBox>
-          <SwitchButton />
-        </SCQuickFilterBox>
+        <div><SwitchButton /></div>
       </SCQuickFilters>
       <Table />
       <Table />
