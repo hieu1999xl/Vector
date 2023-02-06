@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import http from "../../../untils/http";
 import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
+import { useRegisterAccount } from "../../services";
 
 
 const Login = () => {
@@ -30,21 +31,17 @@ const Login = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
+      tc: true
     },
   });
   const { register, control, handleSubmit, getValues } = form;
-
-  const { mutate } = useMutation({
-    mutationFn: (body: RegisterRequest) => {
-      return http.post('user/regrister', body)
-    }
-  })
+  const { mutate: mutateRegister, error } = useRegisterAccount()
 
   const onSave = () => {
     const formData = getValues();
     console.log(formData)
-    mutate(formData, {
+    mutateRegister( formData , {
       onSuccess: () => {
         navigate('/login')
       },

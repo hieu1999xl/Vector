@@ -5,13 +5,9 @@ import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
-<<<<<<< HEAD
 import ContentLogin from "../../../components/commons/ContentLogin";
 import { useMutation } from "@tanstack/react-query";
 import http from "../../../untils/http";
-=======
-import  ContentLogin from "../../../components/commons/ContentLogin";
->>>>>>> cc472121b0b35e8bff9b145ba2369ce5f767ea0c
 import { LoginRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
 import { useLoginAccount } from "../../services";
@@ -55,8 +51,8 @@ const Login = () => {
 
     <LoginHead />
     <div style={{ background: '#ececf1', height: 'calc(100vh - 273px)' }}>
-      <LoginStyleGl.SCGrid style={{ height: '100%' }}>
-        <LoginStyleGl.SCRow style={{ height: '100%' }}>
+      <LoginStyleGl.SCGrid >
+        <LoginStyleGl.SCRow >
           <LoginStyleGl.SCCol_5 >
             <ContentLogin />
           </LoginStyleGl.SCCol_5>
@@ -88,7 +84,6 @@ const Login = () => {
                     </svg>
                   </div> */}
                 </LoginStyle.SCButtonLogin>
-
               </form>
             </LoginStyle.App>
           </LoginStyleGl.SCCol_4>

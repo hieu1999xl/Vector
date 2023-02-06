@@ -5,7 +5,7 @@ import { RegisterRequest, LoginRequest } from '../types'
 export namespace MainService {
 
   export const register = (payload: RegisterRequest) => {
-    return axios.post('/register', payload)
+    return axios.post('/api/user/register/', payload)
   }
   export const login = (payload: LoginRequest) => {
     return axios.post('/api/user/login/', payload)
