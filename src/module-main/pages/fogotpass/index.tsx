@@ -13,7 +13,7 @@ import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
 
 
-const Login = () => {
+const Forgot_password = () => {
   const navigate = useNavigate()
 
   const notify = (data: string) => toast.error(data, {
@@ -37,7 +37,7 @@ const Login = () => {
 
   const { mutate } = useMutation({
     mutationFn: (body: RegisterRequest) => {
-      return http.post('user/regrister', body)
+      return http.post('user/send-reset-pwd-email/', body)
     }
   })
 
@@ -66,24 +66,13 @@ const Login = () => {
           </LoginStyleGl.SCCol_5>
           <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <RegisterStyle.App>
-              <RegisterStyle.Tittle>Register</RegisterStyle.Tittle>
+              <RegisterStyle.Tittle>Forgot Password</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("name")} placeholder="Enter Username" />
-                </div>
                 <div className="input-group-reg">
                   <RegisterStyle.IputLogin type="text" {...register("email")} placeholder="Enter Email" />
                 </div>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password")} placeholder="Enter Password" />
-                </div>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("confirmPassword")} placeholder="Enter Confirm Password" />
-                </div>
-                
                 <RegisterStyle.SCButtonLogin className="primary">Submit
                 </RegisterStyle.SCButtonLogin>
-
               </form>
             </RegisterStyle.App>
           </LoginStyleGl.SCCol_4>
@@ -96,4 +85,4 @@ const Login = () => {
 
 
 
-export default Login
+export default Forgot_password
