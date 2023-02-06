@@ -7,7 +7,7 @@ export interface RegisterRequest {
   confirmPassword: string;
 }
 export interface LoginRequest {
-  username: string;
+  email: string;
   password: string;
   
 }

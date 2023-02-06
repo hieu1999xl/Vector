@@ -27,7 +27,7 @@ const Login = () => {
 
   const form = useForm<LoginRequest>({
     defaultValues: {
-      username: '',
+      email: '',
       password: '',
     },
   });
@@ -35,7 +35,7 @@ const Login = () => {
 
   const { mutate } = useMutation({
     mutationFn: (body: LoginRequest) => {
-      return http.post('auth/login', body)
+      return http.post('user/login', body)
     }
   })
 
@@ -66,7 +66,7 @@ const Login = () => {
               <Tittle>Login</Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <IputLogin type="text" {...register("username")}  placeholder="Enter Username"
+                  <IputLogin type="text" {...register("email")}  placeholder="Enter Username"
                   />
                 </div>
                 <div className="input-group">
