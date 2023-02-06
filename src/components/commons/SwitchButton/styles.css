@@ -7,6 +7,8 @@
   width: 160px;
   height: 54px;
   margin-bottom: 0;
+  top: 8px;
+  left: 30px;
 }
 .button-switch .lbl-off,
 .button-switch .lbl-on {

@@ -5,6 +5,7 @@
   html {
     font-size: 62.5%;
     background-color: #F9F9F9;
+    font-family: 'Montserrat', sans-serif;
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
@@ -17,4 +18,9 @@
 
   p{
     margin:0;
+  }
+
+  button {
+    border: none;
+    outline: none;
   }
