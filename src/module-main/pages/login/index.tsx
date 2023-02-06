@@ -6,38 +6,50 @@ import * as LoginStyle from './style'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import  ContentLogin from "../../../components/commons/ContentLogin";
-import { LoginRequest } from "src/module-main/types";
 import { useMutation } from "@tanstack/react-query";
-import http from "../../../../src/untils/http";
-import { useLocginAccount } from "../../../../src/module-main/services";
-import axios from "axios";
+import http from "../../../untils/http";
+import { LoginRequest } from "src/module-main/types";
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
+  const notify = (data: string) => toast.error(data, {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    theme: "colored",
+    });
+
   const form = useForm<LoginRequest>({
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   });
   const { register, control, handleSubmit, getValues } = form;
 
-  const { mutate , error , data } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: (body: LoginRequest) => {
-      console.log(body);
-      
-      return http.post('/api/user/login/', body)
+      return http.post('auth/login', body)
     }
   })
-  // const { mutateAsync, error: errorRegister, data } = useLocginAccount();
 
   const onSave = () => {
     const formData = getValues();
-    console.log('formData', formData);
-    mutate(formData)
+    mutate(formData, {
+      onSuccess: () => {
+        navigate('/')
+      },
+      onError: (data) => {
+        // @ts-ignore: Unreachable code error
+        notify(data.response.data)
+      }
+    })
   };
   
   return <>
@@ -54,11 +66,11 @@ const Login = () => {
               <Tittle>Login</Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <IputLogin type="text" {...register("email")} name="email" placeholder="Enter Username"
+                  <IputLogin type="text" {...register("username")}  placeholder="Enter Username"
                   />
                 </div>
                 <div className="input-group">
-                  <IputLogin type="password" {...register("password")} name="password" placeholder="Enter Password" />
+                  <IputLogin type="password" {...register("password")} placeholder="Enter Password" />
                 </div>
                 <div className="keep-signin">
                   <div>
@@ -74,7 +86,8 @@ const Login = () => {
                   {/* <svg xmlns="http://www.w3.org/2000/svg" width="15.582" height="15.582" viewBox="0 0 15.582 15.582">
                     <path id="Icon_ionic-md-arrow-forward" data-name="Icon ionic-md-arrow-forward" d="M5.977,14.741H17.809l-5.454,5.454,1.412,1.363,7.791-7.791L13.767,5.977,12.4,7.34l5.4,5.454H5.977Z" transform="translate(-5.977 -5.977)" fill="#575f6b"/>
                   </svg> */}
-                </LoginStyle.SCButtonLogin>               
+                </LoginStyle.SCButtonLogin>
+                
               </form>
             </App>
           </LoginStyleGl.SCCol_4>
