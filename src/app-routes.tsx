@@ -6,6 +6,8 @@ import Login from './module-main/pages/login';
 import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
+import IstForced from './module-store-transfer/pages/ist-forced';
+
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -51,6 +53,17 @@ export const initRoutes = (): RouteObject[] => {
         {
           index: true,
           element: lazyLoad(<Home />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    },
+    {
+      path: '/ist-forced',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<IstForced />),
         },
         ...getStoreTransferModuleRoutes()
       ],
