@@ -17,10 +17,6 @@ const istFilter = (props: {dataSetting: any}) => {
     console.log(temp);
     setCurrentSetting(temp);
   }
-//   const handleInputChange = useCallback((event: any, key: string) => {
-//     handleChangeSetting(event, key);
-//  }, [currentSetting]);
-
   const handleSelectPanel = (event: any, index: number) => {
       setCurrentSetting(setting[index])
   }
@@ -37,8 +33,6 @@ const istFilter = (props: {dataSetting: any}) => {
   )
 
   const renderSetting = () => {
-    console.log(123123123)
-
     currentSetting &&
     Object.keys(currentSetting.setting).map(key => 
       <div>
@@ -53,7 +47,6 @@ const istFilter = (props: {dataSetting: any}) => {
   }
   return (
     <>
-    {console.log('render')}
     <div>
       List setting
     </div>

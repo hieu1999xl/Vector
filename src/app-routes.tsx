@@ -5,7 +5,7 @@ import { getStoreTransferModuleRoutes } from './module-store-transfer/app-routes
 import Login from './module-main/pages/login';
 import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
-import IstStatus from './module-main/pages/istStatus';
+import IstStatus from './module-store-transfer/pages/istStatus';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 
 // to show loading state for desired page only instead of the entire screen
