@@ -10,8 +10,9 @@ export const useRegisterAccount = () => {
   });
 };
 
-export const useLocginAccount = () => {
+export const useLoginAccount = () => {
   return useMutation((payload: LoginRequest) => {
+    console.log('payload', payload);
     return MainService.login(payload);
   });
 };

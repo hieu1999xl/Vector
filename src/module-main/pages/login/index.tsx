@@ -1,18 +1,14 @@
 import { useForm } from "react-hook-form";
-// import logo from "../assets/img/logo.png"
 import "./login.css";
-import "./style.ts";
 import * as LoginStyle from './style'
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
-import { useEffect, useState } from "react";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import  ContentLogin from "../../../components/commons/ContentLogin";
-import { useMutation } from "@tanstack/react-query";
-import http from "../../../untils/http";
 import { LoginRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
+import { useLoginAccount } from "../../services";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -33,15 +29,11 @@ const Login = () => {
   });
   const { register, control, handleSubmit, getValues } = form;
 
-  const { mutate } = useMutation({
-    mutationFn: (body: LoginRequest) => {
-      return http.post('user/login', body)
-    }
-  })
+  const { mutate: mutateLogin, error } = useLoginAccount()
 
   const onSave = () => {
     const formData = getValues();
-    mutate(formData, {
+    mutateLogin(formData, {
       onSuccess: () => {
         navigate('/')
       },
