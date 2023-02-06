@@ -8,6 +8,6 @@ export namespace MainService {
     return axios.post('/register', payload)
   }
   export const login = (payload: LoginRequest) => {
-    return axios.post('/user/login', payload)
+    return axios.post('/api/user/login/', payload)
   }
 }
