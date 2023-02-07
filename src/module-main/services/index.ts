@@ -1,6 +1,7 @@
+import { LoginRequest } from '../types/User';
 import { useMutation } from '@tanstack/react-query'
-import { RegisterRequest , LoginRequest } from '../types'
-import { MainService} from './api'
+import { RegisterRequest } from '../types'
+import { MainService } from './api'
 
 
 export const useRegisterAccount = () => {

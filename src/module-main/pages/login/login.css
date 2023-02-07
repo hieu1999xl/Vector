@@ -3,10 +3,12 @@
   margin-bottom: 41px;
   margin-top: 41px;
 }
-
 .input-group {
   margin-bottom: 26px;
   position: relative;
+}
+.input-group-reg {
+  margin-bottom: 26px;
 }
 .input-group:nth-last-child(-n + 2) {
   margin-bottom: 50px;
@@ -15,7 +17,7 @@
     font-size: 20px;
     position: absolute;
     left: 86px;
-    top: 28px;
+    top: 22px;
     color: #888888;
     content: " ";
     display: block;
@@ -34,6 +36,13 @@
 }
 .input-group > label,
 .input-group > input {
+  font-family: 'Roboto', sans-serif;
+  max-width: 420px;
+  text-align: left;
+  width: 80%;
+}
+.input-group-reg > label,
+.input-group-reg > input {
   font-family: 'Roboto', sans-serif;
   max-width: 420px;
   text-align: left;
@@ -66,6 +75,9 @@
 .changepw {
   padding-top: 5px;
 }
+.register {
+  padding: 0px 0px 10px;
+}
 
 button.primary {
   background: #f0f1f4;
@@ -79,6 +91,8 @@ button.primary {
 button.primary:hover {
   background: #460224;
   color: #FFFFFF;
+  position: relative;
+  transition: all 0.5s;
 }
 button.secondary {
   background: #c1d7aa;
@@ -86,6 +100,7 @@ button.secondary {
 button.secondary:hover {
   background: #a8c787;
 }
+
 .keep-signin {
   display: flex;
   justify-content: space-around;
@@ -126,7 +141,7 @@ button.secondary:hover {
 .custom-checkbox:focus {
   outline: none;
 }
-.forgot-pass {
+.text-auth {
   font: normal normal medium 16px/21px Roboto;
   letter-spacing: 0px;
   color: #707070;

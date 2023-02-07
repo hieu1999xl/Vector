@@ -7,6 +7,9 @@ import { setupReactQuery } from './config/react-query-config';
 import App from './App';
 import { setupAxios } from './config/axios-config';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { log } from 'console';
 
 
 
@@ -15,13 +18,14 @@ setupAxios();
 
 //react-query client setup
 const queryClient = setupReactQuery();
-
+console.log(process.env.REACT_APP_API_HOST)
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <Router>
         <App />
+        <ToastContainer />
       </Router>
     </QueryClientProvider>
   </React.StrictMode>

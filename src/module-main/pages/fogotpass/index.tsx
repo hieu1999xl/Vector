@@ -11,10 +11,10 @@ import { useMutation } from "@tanstack/react-query";
 import http from "../../../untils/http";
 import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
-import { useRegisterAccount } from "../../services";
+import { log } from "console";
 
 
-const Login = () => {
+const Forgot_password = () => {
   const navigate = useNavigate()
 
   const notify = (data: string) => toast.error(data, {
@@ -31,23 +31,28 @@ const Login = () => {
       name: '',
       email: '',
       password: '',
-      password2: '',
-      tc: true
+      password2: ''
     },
   });
   const { register, control, handleSubmit, getValues } = form;
-  const { mutate: mutateRegister, error } = useRegisterAccount()
+
+  const { mutate } = useMutation({
+    mutationFn: (body: RegisterRequest) => {
+      return http.post('user/send-reset-pwd-email/', body)
+    }
+  })
 
   const onSave = () => {
     const formData = getValues();
     console.log(formData)
-    mutateRegister( formData , {
+    mutate(formData, {
       onSuccess: () => {
         navigate('/login')
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
         notify(data.response.data)
+        console.log(data)
       }
     })
   };
@@ -63,24 +68,13 @@ const Login = () => {
           </LoginStyleGl.SCCol_5>
           <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <RegisterStyle.App>
-              <RegisterStyle.Tittle>Register</RegisterStyle.Tittle>
+              <RegisterStyle.Tittle>Forgot Password</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("name")} placeholder="Enter Username" />
-                </div>
                 <div className="input-group-reg">
                   <RegisterStyle.IputLogin type="text" {...register("email")} placeholder="Enter Email" />
                 </div>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password")} placeholder="Enter Password" />
-                </div>
-                <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password2")} placeholder="Enter Confirm Password" />
-                </div>
-                
                 <RegisterStyle.SCButtonLogin className="primary">Submit
                 </RegisterStyle.SCButtonLogin>
-
               </form>
             </RegisterStyle.App>
           </LoginStyleGl.SCCol_4>
@@ -93,4 +87,4 @@ const Login = () => {
 
 
 
-export default Login
+export default Forgot_password
