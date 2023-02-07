@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { RegisterRequest } from '../../types'
 import { useRegisterAccount } from '../../services'
 import {SCInputRegister} from './styles'
-import { sum } from "../../../untils";
 
 
 const Register = () => {
@@ -22,7 +21,6 @@ const Register = () => {
 
   const onSave = () => {
     const formData = getValues();
-    console.log('sum',sum(1,2));
     console.log('formData', formData);
     mutateAsync(formData).then(() => {
     });

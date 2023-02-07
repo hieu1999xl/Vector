@@ -1,4 +1,4 @@
-import { LoginRequest } from './../types/User';
+import { LoginRequest } from '../types/User';
 import { useMutation } from '@tanstack/react-query'
 import { RegisterRequest } from '../types'
 import { MainService} from './api'
@@ -12,7 +12,6 @@ export const useRegisterAccount = () => {
 
 export const useLoginAccount = () => {
   return useMutation((payload: LoginRequest) => {
-    console.log('payload', payload);
     return MainService.login(payload);
   });
 };
