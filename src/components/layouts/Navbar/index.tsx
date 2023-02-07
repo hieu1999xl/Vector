@@ -58,7 +58,7 @@ const Navbar = () => {
         {
           name: "IST Forced Closure",
           img: "../assets/img/nav/Icon-Close-O.png",
-          url: '/manual3'
+          url: '/ist-forced'
         },
         {
           name: "Store Status",

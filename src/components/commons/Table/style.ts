@@ -59,6 +59,7 @@ export const SCTableItemValue = styled.p`
 export const SCTableTab = styled.table `
     border: 1px solid #D8D8D8;
     border-collapse: collapse;
+    border-radius: 6px;
 `
 
 export const SCTableTr = styled.tr `
@@ -73,6 +74,10 @@ export const SCTableTh = styled.th `
     color: ${globalStyles.black};
     border: 1px solid #D8D8D8;
     border-collapse: collapse;
+`
+
+export const SCTableCheckbox = styled.span `
+    padding-right: 10px;
 `
 
 export const SCTableTd = styled.td `
