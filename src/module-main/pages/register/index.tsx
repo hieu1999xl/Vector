@@ -40,6 +40,11 @@ const Login = () => {
 
   const onSave = () => {
     const formData = getValues();
+<<<<<<< HEAD
+    console.log('formData', formData);
+    mutateAsync(formData).then(() => {
+    });
+=======
     console.log(formData)
     mutateRegister( formData , {
       onSuccess: () => {
@@ -50,6 +55,7 @@ const Login = () => {
         notify(data.response.data)
       }
     })
+>>>>>>> 6fada085ad27ba94fc0aecac8aeb576bdcd6b8aa
   };
 
   return <>
