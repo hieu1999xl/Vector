@@ -44,12 +44,12 @@ const Login = () => {
     mutateRegister( formData , {
       onSuccess: () => {
         navigate('/login')
-      },
-      onError: (data) => {
-        // @ts-ignore: Unreachable code error
-        notify(data.response.data)
       }
     })
+    if(error){
+      // @ts-ignore: Unreachable code error
+      notify(error.error.non_field_errors[0])
+    }
   };
 
   return <>
