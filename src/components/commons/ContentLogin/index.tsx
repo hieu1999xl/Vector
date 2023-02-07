@@ -69,8 +69,8 @@ const ImgItem = styled.div`
   flex: 1;
 `
 const Box = styled.div`
-  background: transparent linear-gradient(300deg, #F2F3F6 0%, #E5E6EC 100%) 0% 0% no-repeat padding-box;
-  box-shadow: -4px -4px 30px #FFFFFF;
+  background: #f0f1f4;
+  box-shadow: -4px -4px 30px #bbb7b7;
   border-radius: 20px;
   height: 92px;
   width: 137px;
