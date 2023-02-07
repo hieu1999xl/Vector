@@ -7,24 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import { useMutation } from "@tanstack/react-query";
-import http from "../../../untils/http";
+import {Notify_error, Notify_success} from "../../../components/commons/Notify";
 import { RegisterRequest } from "src/module-main/types";
-import { toast } from 'react-toastify';
 import { useRegisterAccount } from "../../services";
+import { log } from "console";
 
 
 const Login = () => {
   const navigate = useNavigate()
-
-  const notify = (data: string) => toast.error(data, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    theme: "colored",
-  });
 
   const form = useForm<RegisterRequest>({
     defaultValues: {
@@ -40,16 +30,16 @@ const Login = () => {
 
   const onSave = () => {
     const formData = getValues();
-    console.log(formData)
     mutateRegister( formData , {
       onSuccess: () => {
         navigate('/login')
+        Notify_success("Register Success")
+      },
+      onError: (error) => {
+        // @ts-ignore: Unreachable code error
+        Notify_error(error.message)
       }
     })
-    if(error){
-      // @ts-ignore: Unreachable code error
-      notify(error.error.non_field_errors[0])
-    }
   };
 
   return <>
