@@ -5,7 +5,7 @@ import { LOCAL_STORAGE_KEY } from "../../helpers/constants"
 
 const API_USER = `api/user`
 
-export namespace MainService { 
+export namespace MainService {
 
   export const register = (payload: RegisterRequest) => {
     return axios.post(`/${API_USER}/register/`, payload)
