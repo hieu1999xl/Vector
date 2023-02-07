@@ -19,10 +19,11 @@ const AppLayout = () => {
       <GridSystem.SCGrid>
         <GridSystem.SCRow>
           <GridSystem.SCCol_3>
-            <Navbar/>
+            <Navbar />
           </GridSystem.SCCol_3>
-          <GridSystem.SCCol_8 style={{paddingTop: 100}}>
-            <Outlet/>
+          <GridSystem.SCCol_8>
+            <Header />
+            <Outlet />
           </GridSystem.SCCol_8>
         </GridSystem.SCRow>
       </GridSystem.SCGrid>

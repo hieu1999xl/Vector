@@ -5,6 +5,7 @@ import { getStoreTransferModuleRoutes } from './module-store-transfer/app-routes
 import Login from './module-main/pages/login';
 import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
+import ManualUpload from './module-store-transfer/pages/manual-upload';
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -34,6 +35,17 @@ export const initRoutes = (): RouteObject[] => {
     // authenticated pages
     {
       path: '/',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<ManualUpload />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    },
+    {
+      path: '/ist',
       element: <AppLayout />,
       children: [
         {
