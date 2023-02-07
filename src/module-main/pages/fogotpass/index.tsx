@@ -11,6 +11,7 @@ import { useMutation } from "@tanstack/react-query";
 import http from "../../../untils/http";
 import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
+import { log } from "console";
 
 
 const Forgot_password = () => {
@@ -30,7 +31,7 @@ const Forgot_password = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      password2: ''
     },
   });
   const { register, control, handleSubmit, getValues } = form;
@@ -51,6 +52,7 @@ const Forgot_password = () => {
       onError: (data) => {
         // @ts-ignore: Unreachable code error
         notify(data.response.data)
+        console.log(data)
       }
     })
   };

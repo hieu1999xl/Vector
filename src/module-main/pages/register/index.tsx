@@ -31,7 +31,7 @@ const Login = () => {
       name: '',
       email: '',
       password: '',
-      confirmPassword: '',
+      password2: '',
       tc: true
     },
   });
@@ -75,7 +75,7 @@ const Login = () => {
                   <RegisterStyle.IputLogin type="password" {...register("password")} placeholder="Enter Password" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("confirmPassword")} placeholder="Enter Confirm Password" />
+                  <RegisterStyle.IputLogin type="password" {...register("password2")} placeholder="Enter Confirm Password" />
                 </div>
                 
                 <RegisterStyle.SCButtonLogin className="primary">Submit

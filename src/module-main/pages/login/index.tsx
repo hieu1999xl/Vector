@@ -74,7 +74,7 @@ const Login = () => {
                   </div>
 
                   <div className="changepw">
-                    <Link to={"/forgot_password"} className="forgot-pass"> Forgot Password ? </Link>
+                    <Link to={"/forgot_password"} className="text-auth"> Forgot Password ? </Link>
                   </div>
                 </div>
                 <LoginStyle.SCButtonLogin className="primary">Submit
@@ -84,6 +84,9 @@ const Login = () => {
                     </svg>
                   </div> */}
                 </LoginStyle.SCButtonLogin>
+                <div className="register">
+                    <Link to={"/register"} className="text-auth"> Singup Now </Link>
+                </div>
               </form>
             </LoginStyle.App>
           </LoginStyleGl.SCCol_4>

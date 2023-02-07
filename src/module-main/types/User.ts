@@ -3,7 +3,7 @@ export interface RegisterRequest {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
+  password2: string;
   tc: boolean
 }
 export interface LoginRequest {

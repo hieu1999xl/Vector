@@ -17,7 +17,7 @@
     font-size: 20px;
     position: absolute;
     left: 86px;
-    top: 28px;
+    top: 22px;
     color: #888888;
     content: " ";
     display: block;
@@ -74,6 +74,9 @@
 
 .changepw {
   padding-top: 5px;
+}
+.register {
+  padding: 0px 0px 10px;
 }
 
 button.primary {
@@ -138,7 +141,7 @@ button.secondary:hover {
 .custom-checkbox:focus {
   outline: none;
 }
-.forgot-pass {
+.text-auth {
   font: normal normal medium 16px/21px Roboto;
   letter-spacing: 0px;
   color: #707070;

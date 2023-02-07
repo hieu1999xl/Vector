@@ -29,7 +29,7 @@ export const App: any = styled.div`
 export const Tittle: any = styled.h1`
     font: normal normal medium 30px/39px Roboto;
     letter-spacing: 0px;
-    padding-bottom: 20px;
+    padding-bottom: 50px;
     color: #575F6B;
     height: 39px;
   `
