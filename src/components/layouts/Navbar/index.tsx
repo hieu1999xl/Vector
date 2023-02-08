@@ -68,7 +68,7 @@ const Navbar = () => {
         {
           name: "Availability Comparison",
           img: "../assets/img/nav/status.png",
-          url: '/manual5'
+          url: '/availability-comparison'
         },
       ]
     },
