@@ -1,8 +1,12 @@
 import { LoginRequest } from '../types/User';
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQuery } from '@tanstack/react-query'
 import { RegisterRequest } from '../types'
 import { MainService } from './api'
 
+
+export const QUERY_KEYS = {
+  useGetProfile: ['MainService.useGetProfile'],
+};
 
 export const useRegisterAccount = () => {
   return useMutation((payload: RegisterRequest) => {
@@ -20,3 +24,9 @@ export const useForgotPassword = () => {
     return MainService.forgotPassword(payload);
   });
 };
+
+export const useGetProfile = () => {
+  return useQuery(QUERY_KEYS.useGetProfile, () => {
+    return MainService.getProfile()
+  })
+}
