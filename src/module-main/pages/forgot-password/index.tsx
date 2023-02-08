@@ -6,20 +6,11 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import { toast } from 'react-toastify';
+import {notifyError} from "../../../helpers/notify";
 import { useForgotPassword } from "src/module-main/services";
 
 const ForgotPassword = () => {
   const navigate = useNavigate()
-
-  const notify = (data: string) => toast.error(data, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    theme: "colored",
-  });
 
   const form = useForm<{email: string}>({
     defaultValues: {
@@ -38,7 +29,7 @@ const ForgotPassword = () => {
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
-        notify(data.error)
+        notifyError(data.error)
       }
     })
   };
