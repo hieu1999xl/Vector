@@ -42,13 +42,13 @@ const Home = () => {
         </SCQuickFilterBox>
         <SCQuickFilterBox>
           <SCQuickFiltersText>Quick Filters -</SCQuickFiltersText>
-          <ButtonOutline text='Accepted' onChange={onChange} />
-          <ButtonOutline text='Paused' onChange={onChange} />
-          <ButtonOutline text='Rejected' onChange={onChange} />
+          <ButtonOutline icon='' text='Accepted' onChange={onChange} />
+          <ButtonOutline icon='' text='Paused' onChange={onChange} />
+          <ButtonOutline icon='' text='Rejected' onChange={onChange} />
         </SCQuickFilterBox>
         <SCQuickFilterBox>
-          <ButtonOutline text='Auto' onChange={onChange} />
-          <ButtonOutline text='Manual' onChange={onChange} />
+          <ButtonOutline icon='' text='Auto' onChange={onChange} />
+          <ButtonOutline icon='' text='Manual' onChange={onChange} />
         </SCQuickFilterBox>
         <div><SwitchButton /></div>
       </SCQuickFilters>
