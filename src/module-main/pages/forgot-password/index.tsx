@@ -7,7 +7,7 @@ import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import {notifyError} from "../../../helpers/notify";
-import { useForgotPassword } from "src/module-main/services";
+import { useForgotPassword } from "../../services";
 
 const ForgotPassword = () => {
   const navigate = useNavigate()
