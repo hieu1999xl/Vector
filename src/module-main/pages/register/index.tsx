@@ -13,7 +13,7 @@ import { useRegisterAccount } from "../../services";
 import { log } from "console";
 
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate()
 
   const form = useForm<RegisterRequest>({
@@ -83,4 +83,4 @@ const Login = () => {
 
 
 
-export default Login
+export default Register

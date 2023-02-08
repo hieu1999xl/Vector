@@ -26,15 +26,20 @@ const lazyLoad = (children: React.ReactNode) => {
 export const initRoutes = (): RouteObject[] => {
 
   let routes: RouteObject[] = [];
+  const token = localStorage.getItem('token')
+
+  if(!token) {
+  routes.push({ path: '/login', element: lazyLoad(<Login />) });
+  }
 
   routes.push({ path: '/register', element: lazyLoad(<Register />) });
-  routes.push({ path: '/login', element: lazyLoad(<Login />) });
   routes.push({ path: '/forgot_password', element: lazyLoad(<Forgot_password />) });
 
 
   return [
     ...routes,
     // authenticated pages
+    
     {
       path: '/',
       element: <AppLayout />,

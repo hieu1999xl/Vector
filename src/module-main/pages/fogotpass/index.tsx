@@ -8,10 +8,9 @@ import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import { useMutation } from "@tanstack/react-query";
-import http from "../../../untils/http";
 import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
-import { log } from "console";
+import axios from "axios";
 
 
 const Forgot_password = () => {
@@ -38,7 +37,7 @@ const Forgot_password = () => {
 
   const { mutate } = useMutation({
     mutationFn: (body: RegisterRequest) => {
-      return http.post('user/send-reset-pwd-email/', body)
+      return axios.post('user/send-reset-pwd-email/', body)
     }
   })
 
@@ -52,7 +51,6 @@ const Forgot_password = () => {
       onError: (data) => {
         // @ts-ignore: Unreachable code error
         notify(data.response.data)
-        console.log(data)
       }
     })
   };
