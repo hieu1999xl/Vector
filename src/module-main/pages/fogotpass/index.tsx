@@ -1,20 +1,17 @@
 import { useForm } from "react-hook-form";
 // import logo from "../assets/img/logo.png"
 import "../login/login.css";
-import "../login/style.ts";
+import "../login/style";
 import * as RegisterStyle from '../login/style'
 import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import { useMutation } from "@tanstack/react-query";
-import http from "../../../untils/http";
 import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
-import { log } from "console";
 
-
-const Forgot_password = () => {
+const ForgotPassword = () => {
   const navigate = useNavigate()
 
   const notify = (data: string) => toast.error(data, {
@@ -85,6 +82,4 @@ const Forgot_password = () => {
   </>
 }
 
-
-
-export default Forgot_password
+export default ForgotPassword
