@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-// import logo from "../assets/img/logo.png"
 import "../login/login.css";
 import "../login/style";
 import * as RegisterStyle from '../login/style'
@@ -7,9 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import { useMutation } from "@tanstack/react-query";
-import { RegisterRequest } from "src/module-main/types";
 import { toast } from 'react-toastify';
+import { useForgotPassword } from "src/module-main/services";
 
 const ForgotPassword = () => {
   const navigate = useNavigate()
@@ -23,33 +21,24 @@ const ForgotPassword = () => {
     theme: "colored",
   });
 
-  const form = useForm<RegisterRequest>({
+  const form = useForm<{email: string}>({
     defaultValues: {
-      name: '',
       email: '',
-      password: '',
-      password2: ''
     },
   });
-  const { register, control, handleSubmit, getValues } = form;
+  const { register, handleSubmit, getValues } = form;
 
-  const { mutate } = useMutation({
-    mutationFn: (body: RegisterRequest) => {
-      return http.post('user/send-reset-pwd-email/', body)
-    }
-  })
+  const { mutateAsync: mutateForgotPassword } = useForgotPassword()
 
   const onSave = () => {
     const formData = getValues();
-    console.log(formData)
-    mutate(formData, {
+    mutateForgotPassword(formData, {
       onSuccess: () => {
         navigate('/login')
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
-        notify(data.response.data)
-        console.log(data)
+        notify(data.error)
       }
     })
   };
