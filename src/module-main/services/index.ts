@@ -20,3 +20,11 @@ export const useForgotPassword = () => {
     return MainService.forgotPassword(payload);
   });
 };
+
+export const useChangePassword = () => {
+  return useMutation((payload: {code:string, password: string, password2: string }) => {
+    return MainService.changePassword(payload);
+  });
+};
+
+

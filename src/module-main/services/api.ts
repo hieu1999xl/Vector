@@ -19,6 +19,9 @@ export namespace MainService {
   }
 
   export const forgotPassword = (payload: { email: string }) => {
-    return axios.post(`/${API_USER}/send-reset-pwd-email`, payload)
+    return axios.post(`/${API_USER}/send-reset-pwd-email/`, payload)
+  }
+  export const changePassword = (payload: { code: string, password: string, password2: string }) => {
+    return axios.post(`/${API_USER}/reset-pwd/NQ/${payload.code}`, payload)
   }
 }

@@ -7,27 +7,27 @@ import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import {notifyError, notifySuccess} from "../../../helpers/notify";
-import { useForgotPassword } from "../../services";
+import { useChangePassword } from "../../services";
 
-const ForgotPassword = () => {
+const ChangePassword = () => {
   const navigate = useNavigate()
 
-  const form = useForm<{email: string}>({
+  const form = useForm<{password: string, password2: string ,code: string}>({
     defaultValues: {
-      email: '',
+      password: '',
+      password2: '',
     },
   });
   const { register, handleSubmit, getValues } = form;
 
-  const { mutateAsync: mutateForgotPassword } = useForgotPassword()
+  const { mutateAsync: mutateForgotPassword } = useChangePassword()
 
   const onSave = () => {
     const formData = getValues();
     mutateForgotPassword(formData, {
       onSuccess: (data) => {
-        navigate('/change-password')
-        notifySuccess('Password Reset link sent. Please check your email')
-
+        navigate('/login')
+        notifySuccess(data.data.msg)
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
@@ -47,10 +47,16 @@ const ForgotPassword = () => {
           </LoginStyleGl.SCCol_5>
           <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <RegisterStyle.App>
-              <RegisterStyle.Tittle>Forgot Password</RegisterStyle.Tittle>
+              <RegisterStyle.Tittle>Change Password</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
+              <div className="input-group-reg">
+                  <RegisterStyle.IputLogin type="text" {...register("code")} placeholder="Enter Code" />
+                </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("email")} placeholder="Enter Email" />
+                  <RegisterStyle.IputLogin type="text" {...register("password")} placeholder="Enter new password" />
+                </div>
+                <div className="input-group-reg">
+                  <RegisterStyle.IputLogin type="text" {...register("password2")} placeholder="Enter comfirm new password" />
                 </div>
                 <RegisterStyle.SCButtonLogin className="primary">Submit
                 </RegisterStyle.SCButtonLogin>
@@ -64,4 +70,4 @@ const ForgotPassword = () => {
   </>
 }
 
-export default ForgotPassword
+export default ChangePassword

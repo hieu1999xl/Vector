@@ -62,7 +62,7 @@ const Login = () => {
                   </div>
 
                   <div className="changepw">
-                    <Link to={"/forgot_password"} className="text-auth"> Forgot Password ? </Link>
+                    <Link to={"/forgot-password"} className="text-auth"> Forgot Password ? </Link>
                   </div>
                 </div>
                 <LoginStyle.SCButtonLogin className="primary">Submit

@@ -8,6 +8,7 @@ import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 import IstForced from './module-store-transfer/pages/ist-forced';
 import ForgotPassword from './module-main/pages/forgot-password';
+import ChangePassword from './module-main/pages/change-password';
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -27,13 +28,11 @@ const lazyLoad = (children: React.ReactNode) => {
 export const initRoutes = (): RouteObject[] => {
 
   let routes: RouteObject[] = [];
-  const token = localStorage.getItem('token')
-
   
   routes.push({ path: '/login', element: lazyLoad(<Login />) });
   routes.push({ path: '/register', element: lazyLoad(<Register />) });
   routes.push({ path: '/forgot-password', element: lazyLoad(<ForgotPassword />) });
-
+  routes.push({ path: '/change-password', element: lazyLoad(<ChangePassword />) });
 
   return [
     ...routes,
