@@ -56,18 +56,18 @@ export const SCTableItemValue = styled.p`
 
 `
 
-export const SCTableTab = styled.table `
+export const SCTableTab = styled.table`
     border: 1px solid #D8D8D8;
     border-collapse: collapse;
     border-radius: 6px;
 `
 
-export const SCTableTr = styled.tr `
+export const SCTableTr = styled.tr`
     text-align: left;
     
 `
 
-export const SCTableTh = styled.th `
+export const SCTableTh = styled.th`
     padding: 6px 12px;
     font-size: 1.4rem;
     font-weight: 300;
@@ -76,11 +76,11 @@ export const SCTableTh = styled.th `
     border-collapse: collapse;
 `
 
-export const SCTableCheckbox = styled.span `
+export const SCTableCheckbox = styled.span`
     padding-right: 10px;
 `
 
-export const SCTableTd = styled.td `
+export const SCTableTd = styled.td`
     padding: 6px 12px;
     border-left: 1px solid #D8D8D8;
     font-size: 1.4rem;
