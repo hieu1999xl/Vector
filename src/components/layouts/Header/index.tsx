@@ -6,6 +6,10 @@ const Header = () => {
       return (<span>Manual Upload</span>)
     } else if (location.pathname === "/ist") {
       return (<span>Pending IST Requests</span>)
+    } else if (location.pathname === "/ist-forced") {
+      return (<span>IST Forced Closure</span>)
+    } else if (location.pathname === "/store-status") {
+      return (<span>Store Status</span>)
     }
   }
 

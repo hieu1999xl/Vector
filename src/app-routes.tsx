@@ -7,6 +7,7 @@ import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 import IstForced from './module-store-transfer/pages/ist-forced';
+import StoreStatus from './module-store-transfer/pages/store-status';
 import ForgotPassword from './module-main/pages/forgot-password';
 
 // to show loading state for desired page only instead of the entire screen
@@ -65,6 +66,16 @@ export const initRoutes = (): RouteObject[] => {
         {
           index: true,
           element: lazyLoad(<IstForced />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    }, {
+      path: '/store-status',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<StoreStatus />),
         },
         ...getStoreTransferModuleRoutes()
       ],

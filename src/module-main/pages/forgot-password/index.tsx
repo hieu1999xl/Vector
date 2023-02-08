@@ -7,7 +7,7 @@ import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import { toast } from 'react-toastify';
-import { useForgotPassword } from "src/module-main/services";
+import { useForgotPassword } from "../../../../src/module-main/services";
 
 const ForgotPassword = () => {
   const navigate = useNavigate()
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
     theme: "colored",
   });
 
-  const form = useForm<{email: string}>({
+  const form = useForm<{ email: string }>({
     defaultValues: {
       email: '',
     },
