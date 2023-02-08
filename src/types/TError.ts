@@ -14,4 +14,5 @@ export type TError = {
   traceId?: string;
   traceError?: string;
   timestamp: Date;
+  email?: string | Array<string>
 };

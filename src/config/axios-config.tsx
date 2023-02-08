@@ -89,7 +89,7 @@ const getAxiosError = (error: AxiosError<Error>): Error => {
   return {
     code: error.code,
     status: error.response?.status,
-    error: error.response?.data?.error,
+    error: error.response?.data?.error || error.response?.data.email?.[0],
     message,
     path: error.config?.url,
     validation: error.response?.data?.validation,

@@ -42,7 +42,7 @@ const Login = () => {
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
-        notify(data.response.data)
+        notify(data.error)
       }
     })
   };
