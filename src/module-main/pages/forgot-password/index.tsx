@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {notifyError, notifySuccess} from "../../../helpers/notify";
+import {notifyError} from "../../../helpers/notify";
 import { useForgotPassword } from "../../services";
 
 const ForgotPassword = () => {
