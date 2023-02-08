@@ -1,19 +1,28 @@
 import axios, { AxiosError } from 'axios';
 import qs from 'qs';
-import { cleanObject } from '../helpers/utils';
-import { v4 as uuidv4 } from 'uuid';
-import { HEADER_TRACE_KEY } from '../helpers/constants';
+import { cleanObject, loginRedirect } from '../helpers/utils';
 import { TError } from '../types';
-
+import { MainService } from '../module-main/services/api';
 /**
  * Global setup axios: baseURL, request interceptors, response interceptors
  */
 export const setupAxios = () => {
   axios.defaults.baseURL = process.env.REACT_APP_API_HOST;
   axios.interceptors.request.use(async function (config) {
-    const uuid = uuidv4();
-    // config.headers = { ...config.headers, [HEADER_TRACE_KEY]: uuid };
     if (config.url) {
+      if (!config.headers || !config.headers['Authorization']) {
+        const token = await MainService.acquireToken();
+        if (!token) {
+          if (config.url.indexOf(MainService.getLogoutUrl()) > -1) {
+            loginRedirect();
+          }
+        } else {
+          config.headers = {
+            ...config.headers,
+            Authorization: `Bearer ${token?.access}`,
+          };
+        }
+      }
     }
 
     return config;
