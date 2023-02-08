@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {Notify_error, Notify_success} from "../../../components/commons/Notify";
+import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { RegisterRequest } from "src/module-main/types";
 import { useRegisterAccount } from "../../services";
 
@@ -30,11 +30,11 @@ const Register = () => {
     mutateRegister( formData , {
       onSuccess: () => {
         navigate('/login')
-        Notify_success("Register Success")
+        notifySuccess("Register Success")
       },
       onError: (error) => {
         // @ts-ignore: Unreachable code error
-        Notify_error(error.message)
+        notifyError(error.message)
       }
     })
   };

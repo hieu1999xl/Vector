@@ -6,8 +6,7 @@ import * as GridSystem from "../../../styles/gridSystem";
 
 
 
-const isAnonymous = true;
-
+const isAnonymous = false;
 
 const AppLayout = () => {
   useEffect(() => {
