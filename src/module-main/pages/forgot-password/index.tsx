@@ -1,56 +1,35 @@
 import { useForm } from "react-hook-form";
-// import logo from "../assets/img/logo.png"
 import "../login/login.css";
-import "../login/style.ts";
+import "../login/style";
 import * as RegisterStyle from '../login/style'
 import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import { useMutation } from "@tanstack/react-query";
-import { RegisterRequest } from "src/module-main/types";
-import { toast } from 'react-toastify';
-import axios from "axios";
+import {notifyError} from "../../../helpers/notify";
+import { useForgotPassword } from "src/module-main/services";
 
-
-const Forgot_password = () => {
+const ForgotPassword = () => {
   const navigate = useNavigate()
 
-  const notify = (data: string) => toast.error(data, {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    theme: "colored",
-  });
-
-  const form = useForm<RegisterRequest>({
+  const form = useForm<{email: string}>({
     defaultValues: {
-      name: '',
       email: '',
-      password: '',
-      password2: ''
     },
   });
-  const { register, control, handleSubmit, getValues } = form;
+  const { register, handleSubmit, getValues } = form;
 
-  const { mutate } = useMutation({
-    mutationFn: (body: RegisterRequest) => {
-      return axios.post('user/send-reset-pwd-email/', body)
-    }
-  })
+  const { mutateAsync: mutateForgotPassword } = useForgotPassword()
 
   const onSave = () => {
     const formData = getValues();
-    console.log(formData)
-    mutate(formData, {
+    mutateForgotPassword(formData, {
       onSuccess: () => {
         navigate('/login')
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
-        notify(data.response.data)
+        notifyError(data.error)
       }
     })
   };
@@ -83,6 +62,4 @@ const Forgot_password = () => {
   </>
 }
 
-
-
-export default Forgot_password
+export default ForgotPassword

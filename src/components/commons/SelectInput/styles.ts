@@ -18,7 +18,6 @@ export const SCSellectIcon = styled.img`
 export const SCSellectBox = styled.select`
   padding-left: 20px;
   padding-right: 3px;
-  border: 1px solid #D8D8D8;
   border-radius: 6px;
   height: 40px;
   font-size: 1.3rem;

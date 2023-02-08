@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {Notify_error, Notify_success} from "../../../components/commons/Notify";
+import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { LoginRequest } from "src/module-main/types";
 import { useLoginAccount } from "../../services";
 
@@ -25,13 +25,13 @@ const Login = () => {
     const formData = getValues();
     mutateLogin(formData, {
       onSuccess: () => {
-        Notify_success('Login success !')
         navigate('/')
+        notifySuccess('Login success !')
       },
     })
     if(error) {
       // @ts-ignore: Unreachable code error
-      Notify_error(error.error.non_field_errors[0])
+      notifyError(error.error.non_field_errors[0])
     }
   };
 
