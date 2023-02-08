@@ -1,6 +1,10 @@
 import * as Tab from "./style";
+import Checkbox from "../Checkbox";
 
 const Table = () => {
+  const onChange = () => {
+    console.log('a hi hi')
+  }
   const information = [
     {
       name: "Receiver ROSN",
@@ -72,7 +76,7 @@ const Table = () => {
     },
   ];
   return (
-    <Tab.SCTableBox style={{marginBottom: 30}}>
+    <Tab.SCTableBox style={{ marginBottom: 30 }}>
       <Tab.SCTableInformation>
         <img src="../assets/img/Group 731.png" alt="logo" width={100} />
         <Tab.SCTableStyle>
@@ -94,23 +98,30 @@ const Table = () => {
       </Tab.SCTableInformation>
       <Tab.SCTableTab width="100%">
         <Tab.SCTableTr>
-          {cell.map((item) => (
-            <Tab.SCTableTh>{item}</Tab.SCTableTh>
-          ))}
+          <Tab.SCTableTh><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>Item Code</Tab.SCTableTh>
+          <Tab.SCTableTh>Quantity</Tab.SCTableTh>
+          <Tab.SCTableTh>Donor ROSN</Tab.SCTableTh>
+          <Tab.SCTableTh>Donor Location</Tab.SCTableTh>
+          <Tab.SCTableTh>City</Tab.SCTableTh>
+          <Tab.SCTableTh>Location Code</Tab.SCTableTh>
+          <Tab.SCTableTh>Location Type</Tab.SCTableTh>
+          <Tab.SCTableTh>Channel</Tab.SCTableTh>
+          <Tab.SCTableTh>VF IST ID</Tab.SCTableTh>
         </Tab.SCTableTr>
         {data.map((item) => (
           <tr>
-          <Tab.SCTableTd>{item?.item}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.quantity}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.donor}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.location}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.city}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.code}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.channel}</Tab.SCTableTd>
-          <Tab.SCTableTd>{item?.vf}</Tab.SCTableTd>
-        </tr>
+            <Tab.SCTableTd><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>{item?.item}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.quantity}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.donor}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.location}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.city}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.code}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.type}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.channel}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.vf}</Tab.SCTableTd>
+          </tr>
         ))}
-        
+
       </Tab.SCTableTab>
     </Tab.SCTableBox>
   );

@@ -1,19 +1,16 @@
 import { useForm } from "react-hook-form";
-// import logo from "../assets/img/logo.png"
 import "../login/login.css";
-import "../login/style.ts";
+import "../login/style";
 import * as RegisterStyle from '../login/style'
 import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {Notify_error, Notify_success} from "../../../components/commons/Notify";
+import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { RegisterRequest } from "src/module-main/types";
 import { useRegisterAccount } from "../../services";
-import { log } from "console";
 
-
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate()
 
   const form = useForm<RegisterRequest>({
@@ -25,19 +22,19 @@ const Login = () => {
       tc: true
     },
   });
-  const { register, control, handleSubmit, getValues } = form;
-  const { mutate: mutateRegister, error } = useRegisterAccount()
+  const { register, handleSubmit, getValues } = form;
+  const { mutate: mutateRegister } = useRegisterAccount()
 
   const onSave = () => {
     const formData = getValues();
     mutateRegister( formData , {
       onSuccess: () => {
         navigate('/login')
-        Notify_success("Register Success")
+        notifySuccess("Register Success")
       },
       onError: (error) => {
         // @ts-ignore: Unreachable code error
-        Notify_error(error.message)
+        notifyError(error.message)
       }
     })
   };
@@ -83,4 +80,4 @@ const Login = () => {
 
 
 
-export default Login
+export default Register

@@ -14,3 +14,9 @@ export const useLoginAccount = () => {
     return MainService.login(payload);
   });
 };
+
+export const useForgotPassword = () => {
+  return useMutation((payload: { email: string }) => {
+    return MainService.forgotPassword(payload);
+  });
+};

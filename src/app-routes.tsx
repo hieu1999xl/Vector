@@ -7,7 +7,8 @@ import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
 import IstStatus from './module-store-transfer/pages/istStatus';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
-import Forgot_password from './module-main/pages/fogotpass';
+import IstForced from './module-store-transfer/pages/ist-forced';
+import ForgotPassword from './module-main/pages/forgot-password';
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -30,7 +31,7 @@ export const initRoutes = (): RouteObject[] => {
 
   routes.push({ path: '/register', element: lazyLoad(<Register />) });
   routes.push({ path: '/login', element: lazyLoad(<Login />) });
-  routes.push({ path: '/forgot_password', element: lazyLoad(<Forgot_password />) });
+  routes.push({ path: '/forgot-password', element: lazyLoad(<ForgotPassword />) });
 
 
   return [
@@ -54,6 +55,17 @@ export const initRoutes = (): RouteObject[] => {
         {
           index: true,
           element: lazyLoad(<Home />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    },
+    {
+      path: '/ist-forced',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<IstForced />),
         },
         ...getStoreTransferModuleRoutes()
       ],
