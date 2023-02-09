@@ -8,9 +8,9 @@ import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 import IstForced from './module-store-transfer/pages/ist-forced';
 import StoreStatus from './module-store-transfer/pages/store-status';
-import IstStatus from './module-store-transfer/pages/istStatus';
 import ForgotPassword from './module-main/pages/forgot-password';
 import Availability from './module-store-transfer/pages/availability-comparison';
+import IstStatus from './module-store-transfer/pages/ist-status-demo';
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -93,7 +93,7 @@ export const initRoutes = (): RouteObject[] => {
       ],
     },
     {
-      path: '/ma',
+      path: '/manual2',
       element: <AppLayout />,
       children: [
         {

@@ -1,5 +1,5 @@
-import Data from './data';
-import DataSetting from './setting';
+import Data from './dataSample'
+import DataSetting from './setting'
 
 export const setData = () => {
   if (!localStorage.getItem("data")) {
