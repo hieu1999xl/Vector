@@ -1,7 +1,8 @@
-import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
-import { LOCAL_STORAGE_KEY } from '../../../helpers/constants';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { loginRedirect } from '../../../helpers/utils';
 import { MainService } from '../../../module-main/services/api';
+import { useNavigate } from 'react-router';
+import { UserDataContext } from '../../../context';
 
 interface AuthenticationTemplateProps {
   isAnonymous: boolean;
@@ -24,22 +25,33 @@ export const AuthenticationTemplate = ({
 
 const AuthenticatedTemplate = (props: PropsWithChildren<Pick<AuthenticationTemplateProps, 'loadingComponent'>>) => {
 
+  const navigate = useNavigate()
+  const [loading, setLoading] = useState(true);
   const [userData, setUserData] = useState();
 
   const { children, loadingComponent: Loading } = props;
   useEffect(() => {
     MainService.getProfile().then(res => {
       setUserData(res.data)
+      setLoading(false)
+    }).catch(() => {
+      loginRedirect(navigate);
+      setLoading(false)
     })
   }, [])
 
-  console.log('userData', userData);
-
-  if (localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD)) {
-    return <>{ children }</>
-  } else {
-    loginRedirect()
+  if (loading) {
+    return Loading;
   }
+
+  if (userData) {
+    return (
+      <UserDataContext.Provider value={{user: userData}} >
+        {children}
+      </UserDataContext.Provider>
+    )
+  }
+
   return null
 }
 

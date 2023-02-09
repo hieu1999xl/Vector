@@ -17,6 +17,10 @@ const Home = () => {
     console.log(' aho hio')
   }
 
+  const logState = (state: any) => {
+    console.log("Toggled:", state)
+  }
+
   return (
     <>
       <SCBoxFilter>
@@ -50,7 +54,10 @@ const Home = () => {
           <ButtonOutline icon='' text='Auto' onChange={onChange} />
           <ButtonOutline icon='' text='Manual' onChange={onChange} />
         </SCQuickFilterBox>
-        <div><SwitchButton /></div>
+        <div><SwitchButton
+          labelOn="MOQ Met" labelOff="MOQ Not Met"
+          toggled={true}
+          onClick={logState} /></div>
       </SCQuickFilters>
       <Table />
       <Table />

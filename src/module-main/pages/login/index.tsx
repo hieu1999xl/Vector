@@ -1,15 +1,22 @@
 import { useForm } from "react-hook-form";
 import "./login.css";
 import * as LoginStyle from './style'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {notifyError, notifySuccess} from "../../../helpers/notify";
-import { LoginRequest } from "src/module-main/types";
+import { notifyError, notifySuccess } from "../../../helpers/notify";
+import { LoginRequest } from "../../types";
 import { useLoginAccount } from "../../services";
+import { hasUdfToken } from "../../../helpers/utils";
+import { Errors } from "../../../components";
 
 const Login = () => {
+
+  if (hasUdfToken()) {
+    return <Navigate to="/" replace={true} />;
+  }
+
   const navigate = useNavigate()
   const form = useForm<LoginRequest>({
     defaultValues: {
@@ -17,7 +24,8 @@ const Login = () => {
       password: '',
     },
   });
-  const { register, handleSubmit, getValues , formState: { errors }} = form;
+  const { register, handleSubmit, getValues, formState: { errors } } = form;
+
   const { mutate: mutateLogin, error } = useLoginAccount()
 
   const onSave = () => {
@@ -28,7 +36,7 @@ const Login = () => {
         notifySuccess('Login success !')
       },
     })
-    if(error) {
+    if (error) {
       // @ts-ignore: Unreachable code error
       notifyError(error.error.non_field_errors[0])
     }
@@ -48,16 +56,13 @@ const Login = () => {
               <LoginStyle.Tittle>Login</LoginStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <LoginStyle.IputLogin type="text"
-                    pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}"
-                    {...register("email", { required: true })} placeholder="Enter Username"
+                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true, maxLength: 10 })} placeholder="Enter Username"
                   />
-                   {errors.email?.type === 'required' && <p className="err-input">{'Email is requied field'}</p>}
+                  <Errors errors={errors} name="email" />
                 </div>
                 <div className="input-group">
-                  <input type="text"/>
-                  <LoginStyle.IputLogin type="password" {...register("password", { required: true })} placeholder="Enter Password" />
-                  {errors.password?.type === 'required' && <p className="err-input">{'Password is requied field'}</p>}
+                  <LoginStyle.IputLogin error={errors.password} type="password" {...register("password", { required: true })} placeholder="Enter Password" />
+                  <Errors errors={errors} name="password" />
                 </div>
                 <div className="keep-signin">
                   <div>
@@ -78,7 +83,7 @@ const Login = () => {
                   </div> */}
                 </LoginStyle.SCButtonLogin >
                 <div className="register">
-                    <Link to={"/register"} className="text-auth"> Don't have an account yet? Singup Now</Link>
+                  <Link to={"/register"} className="text-auth"> Don't have an account yet? Singup Now</Link>
                 </div>
               </form>
             </LoginStyle.App>

@@ -38,9 +38,13 @@ export const SCTableItem = styled.li`
     display: block;
     list-style: none;
     padding: 0 30px;
-    border-left: 1px solid #F5F6FA
-
+    border-left: 1px solid #F5F6FA;
+    &:nth-child(1) {
+        padding-left: 0;
+        border: unset;
+    }
 `
+
 
 export const SCTableItemName = styled.p`
    font-size: 1.4rem;
@@ -90,6 +94,6 @@ export const SCTableTd = styled.td`
 
 export const SCButtonChecBox = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
     padding-top: 28px;
 `

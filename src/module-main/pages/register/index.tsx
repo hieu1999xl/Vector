@@ -9,6 +9,7 @@ import ContentLogin from "../../../components/commons/ContentLogin";
 import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { RegisterRequest } from "src/module-main/types";
 import { useRegisterAccount } from "../../services";
+import { Errors } from "../../../components";
 
 const Register = () => {
   const navigate = useNavigate()
@@ -22,7 +23,7 @@ const Register = () => {
       tc: true
     },
   });
-  const { register, handleSubmit, getValues } = form;
+  const { register, handleSubmit, getValues, formState: {errors} } = form;
   const { mutate: mutateRegister } = useRegisterAccount()
 
   const onSave = () => {
@@ -53,16 +54,20 @@ const Register = () => {
               <RegisterStyle.Tittle>Register</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("name")} placeholder="Enter Fullname" />
+                  <RegisterStyle.IputLogin type="text" {...register("name", {required: true})} placeholder="Enter Username" />
+                  <Errors errors={errors} name="name" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("email")} placeholder="Enter Email" />
+                  <RegisterStyle.IputLogin type="text" {...register("email", {required: true})} placeholder="Enter Email" />
+                  <Errors errors={errors} name="email" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password")} placeholder="Enter Password" />
+                  <RegisterStyle.IputLogin type="password" {...register("password", {required: true})} placeholder="Enter Password" />
+                  <Errors errors={errors} name="password" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password2")} placeholder="Enter Confirm Password" />
+                  <RegisterStyle.IputLogin type="password" {...register("password2", {required: true})} placeholder="Enter Confirm Password" />
+                  <Errors errors={errors} name="password2" />
                 </div>
                 
                 <RegisterStyle.SCButtonLogin className="primary">Submit

@@ -3,6 +3,9 @@ import { ButtonNormal } from '../../index'
 import { useState } from 'react';
 import { SCMenuLeft, SCMenuItem, SCItemChild, SCLogoutBtn } from './styles'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useUserData } from '../../../context';
+import { useQueryClient } from '@tanstack/react-query';
+import { MainService } from '../../../module-main/services/api';
 
 
 const listCounters = [
@@ -63,12 +66,12 @@ const Navbar = () => {
         {
           name: "Store Status",
           img: "../assets/img/nav/stores.png",
-          url: '/manual4'
+          url: '/store-status'
         },
         {
           name: "Availability Comparison",
           img: "../assets/img/nav/status.png",
-          url: '/manual5'
+          url: '/availability-comparison'
         },
       ]
     },
@@ -118,6 +121,14 @@ const Navbar = () => {
 
   const handleChange = () => { }
 
+  const { user } = useUserData()
+   const queryClient = useQueryClient();
+
+  const handleLogout = async () => {
+    await MainService.logout(queryClient)
+    navigate('/login')
+  }
+
   return (
     <NavStyle.SCGridNav>
       <img src="../assets/img/logo.png" alt="logo" />
@@ -129,7 +140,7 @@ const Navbar = () => {
               alt="logo"
               width={46}
             />
-            <NavStyle.SCAvatarName>Nikhil Shah</NavStyle.SCAvatarName>
+            <NavStyle.SCAvatarName>{ user.name }</NavStyle.SCAvatarName>
           </NavStyle.SCAvatar>
           <ButtonNormal onChange={handleChange} text="Brand Manager" />
         </NavStyle.SCProfile>
@@ -160,7 +171,7 @@ const Navbar = () => {
             <p>0.4/80 Lakhs</p>
           </NavStyle.SCNavCountFooter>
         </NavStyle.SCCount>
-        <NavStyle.SCNavLogout>
+        <NavStyle.SCNavLogout onClick={handleLogout}>
           <img src="../assets/img/nav/loguot.png" alt="logo" />
           <NavStyle.SCNavLogoutText>Logout</NavStyle.SCNavLogoutText>
         </NavStyle.SCNavLogout>

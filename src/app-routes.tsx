@@ -7,8 +7,10 @@ import Register from './module-main/pages/register';
 import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 import IstForced from './module-store-transfer/pages/ist-forced';
+import StoreStatus from './module-store-transfer/pages/store-status';
 import ForgotPassword from './module-main/pages/forgot-password';
 import ChangePassword from './module-main/pages/change-password';
+import Availability from './module-store-transfer/pages/availability-comparison';
 
 // to show loading state for desired page only instead of the entire screen
 const lazyLoad = (children: React.ReactNode) => {
@@ -67,6 +69,27 @@ export const initRoutes = (): RouteObject[] => {
         {
           index: true,
           element: lazyLoad(<IstForced />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    }, {
+      path: '/store-status',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<StoreStatus />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    },
+    {
+      path: '/availability-comparison',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<Availability />),
         },
         ...getStoreTransferModuleRoutes()
       ],
