@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-
+import { ButtonCheck } from './../../../components/index';
 import Services from './../../services/IstStatus'
 
 const istFilter = (props: { dataSetting: any, setSettingView: any, refreshData: any }) => {
@@ -31,6 +31,7 @@ const istFilter = (props: { dataSetting: any, setSettingView: any, refreshData: 
         value={key}
         checked={currentSetting.setting[key]}
       />{key}
+      <ButtonCheck text="Item Code" onClick={(event: any) => handleChangeSetting(event, key)} toggled={currentSetting.setting[key]} />
     </div>
   )
 

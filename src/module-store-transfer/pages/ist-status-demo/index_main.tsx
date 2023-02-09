@@ -34,7 +34,7 @@ const istStatus = () => {
         refreshData={refreshData}
         setSettingView={setSettingView}
       />
-      {/* <ButtonCheck /> */}
+
     </div>
   )
 }

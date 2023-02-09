@@ -56,7 +56,7 @@ const Login = () => {
               <LoginStyle.Tittle>Login</LoginStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true, maxLength: 10 })} placeholder="Enter Username"
+                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true })} placeholder="Enter Username"
                   />
                   <Errors errors={errors} name="email" />
                 </div>
