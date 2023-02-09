@@ -22,6 +22,7 @@ export { default as ButtonOutline } from './commons/ButtonOutline';
 export { default as ButtonOutlineCheck } from './commons/ButtonOutlineCheck';
 export { default as SwitchButton } from './commons/SwitchButton';
 export { default as Checkbox } from './commons/Checkbox';
+export { default as Errors } from './commons/Errors';
 
 
 
