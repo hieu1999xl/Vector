@@ -1,7 +1,7 @@
 import { useUserData } from '../../../context';
 import * as HeaderStyled from './style';
 const Header = () => {
-
+  
   const { user } = useUserData()
 
   const renderNamePage = () => {
@@ -24,7 +24,7 @@ const Header = () => {
           Welcome Back! <HeaderStyled.SCHeaderName>{ user.name }</HeaderStyled.SCHeaderName>
         </HeaderStyled.SCHeaderWelcome>
         <img src="../assets/img/header/notifications.svg" style={{ padding: "0 20px" }} />
-        <img src="../assets/img/header/profile.svg" />
+        <img style={{cursor: 'pointer'}} src="../assets/img/header/profile.svg" />
       </HeaderStyled.SCHeaderContent>
     </HeaderStyled.SCHeaderBox>
   );
