@@ -10,6 +10,11 @@ export interface LoginRequest {
   email: string;
   password: string;
 }
+export interface ChangePassRequest {
+  code: string;
+  password: string;
+  password2: string;
+}
 
 export type User = {
   id: number;

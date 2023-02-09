@@ -1,3 +1,4 @@
+import { ChangePassRequest } from '../types/User';
 
 import axios from "axios"
 import { RegisterRequest, LoginRequest } from '../types'
@@ -83,7 +84,7 @@ export namespace MainService {
   export const forgotPassword = (payload: { email: string }) => {
     return axios.post(`/${API_USER}/send-reset-pwd-email/`, payload)
   }
-  export const changePassword = (payload: { code: string, password: string, password2: string }) => {
+  export const changePassword = (payload: ChangePassRequest) => {
     return axios.post(`/${API_USER}/reset-pwd/NQ/${payload.code}`, payload)
   }
 

@@ -151,3 +151,8 @@ button.secondary:hover {
 .submit-icon {
   padding-left: 15px;
 }
+.err-input {
+  color: red;
+  font-size: 12px;
+  padding-top: 8px;
+}
