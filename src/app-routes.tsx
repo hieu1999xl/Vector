@@ -92,6 +92,7 @@ export const initRoutes = (): RouteObject[] => {
         ...getStoreTransferModuleRoutes()
       ],
     },
+<<<<<<< HEAD
     {
       path: '/manual2',
       element: <AppLayout />,
@@ -103,5 +104,7 @@ export const initRoutes = (): RouteObject[] => {
         ...getStoreTransferModuleRoutes()
       ],
     },
+=======
+>>>>>>> parent of 0b748e1 (Merge branch 'quangtp-dev' of https://github.com/hieu1999xl/vector into hieudn)
   ];
 };
