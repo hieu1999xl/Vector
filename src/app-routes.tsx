@@ -8,6 +8,7 @@ import Home from './module-main/pages/home';
 import ManualUpload from './module-store-transfer/pages/manual-upload';
 import IstForced from './module-store-transfer/pages/ist-forced';
 import StoreStatus from './module-store-transfer/pages/store-status';
+import IstStatus from './module-store-transfer/pages/istStatus';
 import ForgotPassword from './module-main/pages/forgot-password';
 import Availability from './module-store-transfer/pages/availability-comparison';
 
@@ -87,6 +88,17 @@ export const initRoutes = (): RouteObject[] => {
         {
           index: true,
           element: lazyLoad(<Availability />),
+        },
+        ...getStoreTransferModuleRoutes()
+      ],
+    },
+    {
+      path: '/ma',
+      element: <AppLayout />,
+      children: [
+        {
+          index: true,
+          element: lazyLoad(<IstStatus />),
         },
         ...getStoreTransferModuleRoutes()
       ],
