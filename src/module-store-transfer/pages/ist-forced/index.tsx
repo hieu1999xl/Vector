@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { SCBoxFilter, SCQuickFilters, SCBoxFilterButton, SCBoxFilterButtonFlex, SCBoxFilterButtonLabel } from './styes'
-import { ProductFilter, LocationFilter, ButtonOutline, SelectInput } from './../../../components/index'
+import { SCBoxFilter, SCQuickFilters, SCBoxFilterButton, SCBoxFilterButtonFlex, SCBoxFilterButtonLabel, SCExportAllBox, SCExportAllBoxSpan, SCExportAllBoxButton } from './styes'
+import { ProductFilter, LocationFilter, ButtonOutline, SelectInput, TableForced } from './../../../components/index'
 const IstForced = () => {
   const onChange = () => {
     console.log('a hi hi')
@@ -43,6 +43,8 @@ const IstForced = () => {
           </SCBoxFilterButtonFlex>
         </SCBoxFilterButton>
       </SCQuickFilters>
+      <SCExportAllBox><SCExportAllBoxButton><img src="../assets/img/forced/excel.png" alt="and" /><SCExportAllBoxSpan>EXPORT ALL</SCExportAllBoxSpan><img src="../assets/img/forced/export.svg" alt="and" /></SCExportAllBoxButton></SCExportAllBox>
+      <TableForced />
     </>
   )
 }

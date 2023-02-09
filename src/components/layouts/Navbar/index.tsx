@@ -63,12 +63,12 @@ const Navbar = () => {
         {
           name: "Store Status",
           img: "../assets/img/nav/stores.png",
-          url: '/manual4'
+          url: '/store-status'
         },
         {
           name: "Availability Comparison",
           img: "../assets/img/nav/status.png",
-          url: '/manual5'
+          url: '/availability-comparison'
         },
       ]
     },
