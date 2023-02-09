@@ -21,18 +21,10 @@ export type UserData = {
 export const UserDataContext = React.createContext<UserData>({
   user: {
     id: 0,
-    salutation: '',
-    firstName: '',
-    lastName: '',
-    fullName: '',
-    emailId: '',
-    loginId: '',
-    countryCode: '',
-    mobileNo: '',
-    userType: '',
-    lastLogin: new Date(),
-    active: true,
-    timeZone: '',
+    email: '',
+    name: '',
+    is_admin: false,
+    role: ''
   },
 });
 

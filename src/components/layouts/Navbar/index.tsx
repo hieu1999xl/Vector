@@ -3,6 +3,7 @@ import { ButtonNormal } from '../../index'
 import { useState } from 'react';
 import { SCMenuLeft, SCMenuItem, SCItemChild, SCLogoutBtn } from './styles'
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useUserData } from '../../../context';
 
 
 const listCounters = [
@@ -118,6 +119,8 @@ const Navbar = () => {
 
   const handleChange = () => { }
 
+  const { user } = useUserData()
+
   return (
     <NavStyle.SCGridNav>
       <img src="../assets/img/logo.png" alt="logo" />
@@ -129,7 +132,7 @@ const Navbar = () => {
               alt="logo"
               width={46}
             />
-            <NavStyle.SCAvatarName>Nikhil Shah</NavStyle.SCAvatarName>
+            <NavStyle.SCAvatarName>{ user.name }</NavStyle.SCAvatarName>
           </NavStyle.SCAvatar>
           <ButtonNormal onChange={handleChange} text="Brand Manager" />
         </NavStyle.SCProfile>

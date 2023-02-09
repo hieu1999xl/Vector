@@ -1,15 +1,21 @@
 import { useForm } from "react-hook-form";
 import "./login.css";
 import * as LoginStyle from './style'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { LoginRequest } from "src/module-main/types";
 import { useLoginAccount } from "../../services";
+import { hasUdfToken } from "../../../helpers/utils";
 
 const Login = () => {
+
+  if (hasUdfToken()) {
+    return <Navigate to="/" replace={true} />;
+  }
+
   const navigate = useNavigate()
   const form = useForm<LoginRequest>({
     defaultValues: {

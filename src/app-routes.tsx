@@ -34,7 +34,6 @@ export const initRoutes = (): RouteObject[] => {
   routes.push({ path: '/login', element: lazyLoad(<Login />) });
   routes.push({ path: '/forgot-password', element: lazyLoad(<ForgotPassword />) });
 
-
   return [
     ...routes,
     // authenticated pages

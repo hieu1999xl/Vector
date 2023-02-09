@@ -1,5 +1,8 @@
+import { useUserData } from '../../../context';
 import * as HeaderStyled from './style';
 const Header = () => {
+
+  const { user } = useUserData()
 
   const renderNamePage = () => {
     if (location.pathname === "/") {
@@ -18,7 +21,7 @@ const Header = () => {
       <HeaderStyled.SCHeaderText>{renderNamePage()}</HeaderStyled.SCHeaderText>
       <HeaderStyled.SCHeaderContent>
         <HeaderStyled.SCHeaderWelcome>
-          Welcome Back! <HeaderStyled.SCHeaderName>Nikhil Shah</HeaderStyled.SCHeaderName>
+          Welcome Back! <HeaderStyled.SCHeaderName>{ user.name }</HeaderStyled.SCHeaderName>
         </HeaderStyled.SCHeaderWelcome>
         <img src="../assets/img/header/notifications.svg" style={{ padding: "0 20px" }} />
         <img src="../assets/img/header/profile.svg" />

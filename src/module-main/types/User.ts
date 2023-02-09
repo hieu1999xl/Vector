@@ -13,16 +13,8 @@ export interface LoginRequest {
 
 export type User = {
   id: number;
-  salutation: string;
-  firstName: string;
-  lastName: string;
-  fullName?: string;
-  emailId: string;
-  loginId: string;
-  countryCode: string;
-  mobileNo: string;
-  userType: string;
-  lastLogin: Date;
-  active: boolean;
-  timeZone: string;
+  email: string;
+  role?: string;
+  is_admin: boolean;
+  name: string
 };
