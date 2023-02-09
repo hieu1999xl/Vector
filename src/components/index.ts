@@ -17,6 +17,7 @@ export { default as Table } from './commons/Table';
 export { default as TableForced } from './commons/TableForced';
 export { default as TableStore } from './commons/TableStore';
 export { default as SelectInput } from './commons/SelectInput';
+export { default as ButtonCheck } from './commons/ButtonCheck';
 export { default as ButtonOutline } from './commons/ButtonOutline';
 export { default as ButtonOutlineCheck } from './commons/ButtonOutlineCheck';
 export { default as SwitchButton } from './commons/SwitchButton';
