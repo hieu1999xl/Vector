@@ -6,7 +6,7 @@ const Errors = ({ errors, name }: ErrorsProps) => {
   const renderError = () => {
     switch (errors[name].type) {
       case 'required':
-        return `This ${name} is required`
+        return `This ${name} is required field`
     
         // case 'maxLength':
         //   return `This ${name} do not more than`
@@ -16,7 +16,7 @@ const Errors = ({ errors, name }: ErrorsProps) => {
     }
   }
   return (
-    <p style={{color: 'red', marginTop: 10, fontSize: 20}}>{errors[name] && renderError() }</p>
+    <p style={{color: 'red', marginTop: 10, fontSize: 12}}>{errors[name] && renderError() }</p>
   )
 }
 

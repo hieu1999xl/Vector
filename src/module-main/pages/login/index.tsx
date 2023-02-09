@@ -10,12 +10,27 @@ import { LoginRequest } from "../../types";
 import { useLoginAccount } from "../../services";
 import { hasUdfToken } from "../../../helpers/utils";
 import { Errors } from "../../../components";
+import { useState } from "react";
 
 const Login = () => {
 
   if (hasUdfToken()) {
     return <Navigate to="/" replace={true} />;
   }
+
+  const [remember, setRemember] = useState(false)
+  console.log(remember)
+
+  const  setWithExpiry = (key:string, value:string, expiration:string) => {
+    const now = new Date()
+    // `item` is an object which contains the original value
+    // as well as the time when it's supposed to expire
+    const item = {
+        value: value,
+        expiry: now.getTime() + expiration,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+}
 
   const navigate = useNavigate()
   const form = useForm<LoginRequest>({
@@ -31,7 +46,8 @@ const Login = () => {
   const onSave = () => {
     const formData = getValues();
     mutateLogin(formData, {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        console.log(data)
         navigate('/')
         notifySuccess('Login success !')
       },
@@ -56,7 +72,7 @@ const Login = () => {
               <LoginStyle.Tittle>Login</LoginStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true, maxLength: 10 })} placeholder="Enter Username"
+                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true})} placeholder="Enter Username"
                   />
                   <Errors errors={errors} name="email" />
                 </div>
@@ -66,7 +82,7 @@ const Login = () => {
                 </div>
                 <div className="keep-signin">
                   <div>
-                    <input type="checkbox" id="checkbox-1-1" className="custom-checkbox" />
+                    <input onChange={(e) => setRemember(!remember)}  type="checkbox" id="checkbox-1-1" className="custom-checkbox" />
                     <label htmlFor="checkbox-1-1" className="keep-me">Keep Me Signed In</label>
                   </div>
 
