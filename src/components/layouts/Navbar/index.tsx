@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { SCMenuLeft, SCMenuItem, SCItemChild, SCLogoutBtn } from './styles'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useUserData } from '../../../context';
+import { useQueryClient } from '@tanstack/react-query';
+import { MainService } from '../../../module-main/services/api';
 
 
 const listCounters = [
@@ -120,6 +122,12 @@ const Navbar = () => {
   const handleChange = () => { }
 
   const { user } = useUserData()
+   const queryClient = useQueryClient();
+
+  const handleLogout = async () => {
+    await MainService.logout(queryClient)
+    navigate('/login')
+  }
 
   return (
     <NavStyle.SCGridNav>
@@ -163,7 +171,7 @@ const Navbar = () => {
             <p>0.4/80 Lakhs</p>
           </NavStyle.SCNavCountFooter>
         </NavStyle.SCCount>
-        <NavStyle.SCNavLogout>
+        <NavStyle.SCNavLogout onClick={handleLogout}>
           <img src="../assets/img/nav/loguot.png" alt="logo" />
           <NavStyle.SCNavLogoutText>Logout</NavStyle.SCNavLogoutText>
         </NavStyle.SCNavLogout>
