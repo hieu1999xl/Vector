@@ -54,7 +54,7 @@ const Register = () => {
               <RegisterStyle.Tittle>Register</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("name", {required: true})} placeholder="Enter Username" />
+                  <RegisterStyle.IputLogin type="text" {...register("name", {required: true})} placeholder="Enter Fullname" />
                   <Errors errors={errors} name="name" />
                 </div>
                 <div className="input-group-reg">

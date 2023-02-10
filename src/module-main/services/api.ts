@@ -63,6 +63,7 @@ export namespace MainService {
     } finally {
       queryClient.clear();
       localStorage.removeItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD);
+      localStorage.removeItem('isCheckLogin');
     }
   };
 
@@ -75,10 +76,11 @@ export namespace MainService {
   }
 
   export const login = (payload: LoginRequest) => {
-    return axios.post(`/${API_USER}/login/`, payload).then(resp => {
-      localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD, JSON.stringify(resp.data.token));
-      return Promise.resolve(resp);
-    });
+    return axios.post(`/${API_USER}/login/`, payload)
+      .then(resp => {
+        localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD, JSON.stringify(resp.data.token));
+        return Promise.resolve(resp);
+      });
   }
 
   export const forgotPassword = (payload: { email: string }) => {

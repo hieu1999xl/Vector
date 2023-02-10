@@ -11,6 +11,7 @@ import { useLoginAccount } from "../../services";
 import { hasUdfToken } from "../../../helpers/utils";
 import { Errors } from "../../../components";
 import { useState } from "react";
+import { log } from "console";
 
 const Login = () => {
 
@@ -20,17 +21,6 @@ const Login = () => {
 
   const [remember, setRemember] = useState(false)
   console.log(remember)
-
-  const  setWithExpiry = (key:string, value:string, expiration:string) => {
-    const now = new Date()
-    // `item` is an object which contains the original value
-    // as well as the time when it's supposed to expire
-    const item = {
-        value: value,
-        expiry: now.getTime() + expiration,
-    }
-    localStorage.setItem(key, JSON.stringify(item))
-}
 
   const navigate = useNavigate()
   const form = useForm<LoginRequest>({
@@ -47,11 +37,15 @@ const Login = () => {
     const formData = getValues();
     mutateLogin(formData, {
       onSuccess: (data) => {
-        console.log(data)
         navigate('/')
         notifySuccess('Login success !')
+        // if(!remember) {
+        //   // @ts-ignore: Unreachable code error
+        //   localStorage.removeItem('token')
+        // }
       },
     })
+    
     if (error) {
       // @ts-ignore: Unreachable code error
       notifyError(error.error.non_field_errors[0])
