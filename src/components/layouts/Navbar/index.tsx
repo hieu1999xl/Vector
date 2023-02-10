@@ -56,7 +56,7 @@ const Navbar = () => {
         {
           name: "IST Status",
           img: "../assets/img/nav/status.png",
-          url: '/manual2'
+          url: '/is-status'
         },
         {
           name: "IST Forced Closure",
@@ -122,7 +122,7 @@ const Navbar = () => {
   const handleChange = () => { }
 
   const { user } = useUserData()
-   const queryClient = useQueryClient();
+  const queryClient = useQueryClient();
 
   const handleLogout = async () => {
     await MainService.logout(queryClient)
@@ -140,7 +140,7 @@ const Navbar = () => {
               alt="logo"
               width={46}
             />
-            <NavStyle.SCAvatarName>{ user.name }</NavStyle.SCAvatarName>
+            <NavStyle.SCAvatarName>{user.name}</NavStyle.SCAvatarName>
           </NavStyle.SCAvatar>
           <ButtonNormal onChange={handleChange} text="Brand Manager" />
         </NavStyle.SCProfile>
