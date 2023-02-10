@@ -35,7 +35,7 @@ export const Tittle: any = styled.h1`
   `
 export const IputLogin: any = styled.input<{ error: true | false }>`
     border: ${props => (props.error ? '2px solid red' : 'none')};
-    text-indent: 60px;
+    text-indent: 70px;
     width: 513px;
     height: 70px;
     background: #f0f1f4;

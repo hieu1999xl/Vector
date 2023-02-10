@@ -65,7 +65,7 @@
 
 .input-group > input:focus {
   background: #fff;
-  border-color: #c4c4c4;
+  outline: none;
 }
 .input-group > input::placeholder {
   color: #c4c4c4;
@@ -84,7 +84,7 @@ button.primary {
   box-shadow: -6px -6px 30px #bbb7b7;
   border-radius: 40px;
   width: 324px;
-  height: 70px;
+  height: 65px;
   color: #575F6B;
   margin-bottom: 30px;
 }
@@ -104,7 +104,7 @@ button.secondary:hover {
 .keep-signin {
   display: flex;
   justify-content: space-around;
-  margin-bottom: 50px;
+  margin-bottom: 45px;
   margin-top: 45px;
 }
 .custom-checkbox {
