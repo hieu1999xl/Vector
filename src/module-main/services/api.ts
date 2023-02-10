@@ -53,9 +53,9 @@ export namespace MainService {
     }
   };
 
-  export const logout = async () => {
-    const queryClient = useQueryClient();
+  export const logout = async (queryClient: QueryClient) => {
     const { refresh }: Token = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD) || '{}');
+
     try {
       // logout from server
       await axios.post(getLogoutUrl(), { refresh });

@@ -33,8 +33,8 @@ export const Tittle: any = styled.h1`
     color: #575F6B;
     height: 39px;
   `
-export const IputLogin: any = styled.input`
-    border: none;
+export const IputLogin: any = styled.input<{ error: true | false }>`
+    border: ${props => (props.error ? '2px solid red' : 'none')};
     text-indent: 60px;
     width: 513px;
     height: 70px;

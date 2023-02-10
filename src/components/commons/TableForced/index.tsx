@@ -2,26 +2,26 @@ import * as Tab from "./style";
 import Checkbox from "../Checkbox";
 import ButtonOutlineCheck from "../ButtonOutlineCheck";
 
-const Table = () => {
+const TableForced = () => {
   const onChange = () => {
     console.log('a hi hi')
   }
   const information = [
     {
-      name: "Receiver ROSN",
-      value: "5.2",
-    },
-    {
       name: "Receiver Location",
       value: "ALBL - PHOENIX MALL",
+    },
+    {
+      name: "Location Code",
+      value: "2814",
     },
     {
       name: "City",
       value: "Bangalore",
     },
     {
-      name: "Location Code",
-      value: "2814",
+      name: "LocationType",
+      value: "EBO",
     },
     {
       name: "Channel",
@@ -31,47 +31,85 @@ const Table = () => {
   const cell = ['Item Code', 'Quantity', 'Donor ROSN', 'City', 'Location Code', 'Location Type', 'Channel', 'VF IST ID']
   const data = [
     {
+      age: "7 Day",
       item: "UDTSHC0010-L",
+      size: "S",
       quantity: "01",
-      donor: "0.5",
+      status: "Pushed To SAP",
+      money: "USP | UD | TS",
       location: "USPA DENIM (PMC BLR)",
       city: "Bangalore",
-      code: "3015",
-      type: "EBO",
       channel: "EC",
       vf: "VF_191222092311_11",
     },
     {
+      age: "7 Day",
       item: "UDTSHC0010-M",
+      size: "M",
       quantity: "01",
-      donor: "0.5",
+      status: "Ready To Ship",
+      money: "USP | UD | TS",
       location: "USPA - SHANTINIKETAN (FORUM)",
       city: "Bangalore",
-      code: "4947",
-      type: "EBO",
       channel: "EC",
       vf: "VF_191222092311_17",
     },
     {
+      age: "7 Day",
       item: "UDTSHC0010-S",
+      size: "L",
       quantity: "01",
-      donor: "2.1",
+      status: "STO Created",
+      money: "USP | UD | TS",
       location: "ARMANS-SHIMOGA",
       city: "Bangalore",
-      code: "4947",
-      type: "EBO",
       channel: "EC",
       vf: "VF_191222092311_36",
     },
-    ,
     {
+      age: "7 Day",
       item: "UDTSHC0010-XL",
+      size: "XL",
       quantity: "01",
-      donor: "1.1",
+      status: "STO Created",
+      money: "USP | UD | TS",
       location: "URS ROAD MYSORE",
       city: "Shimoga",
-      code: "4947",
-      type: "EBO",
+      channel: "EC",
+      vf: "VF_191222092311_36",
+    }, {
+      age: "7 Day",
+      item: "UDTSHC0010-L",
+      size: "S",
+      quantity: "01",
+      status: "Pushed To SAP",
+      money: "USP | UD | TS",
+      location: "USPA DENIM (PMC BLR)",
+      city: "Bangalore",
+      channel: "EC",
+      vf: "VF_191222092311_11",
+    },
+    {
+      age: "7 Day",
+      item: "UDTSHC0010-M",
+      size: "M",
+      quantity: "01",
+      status: "Ready To Ship",
+      money: "USP | UD | TS",
+      location: "USPA - SHANTINIKETAN (FORUM)",
+      city: "Bangalore",
+      channel: "EC",
+      vf: "VF_191222092311_17",
+    },
+    {
+      age: "7 Day",
+      item: "UDTSHC0010-S",
+      size: "L",
+      quantity: "01",
+      status: "STO Created",
+      money: "USP | UD | TS",
+      location: "ARMANS-SHIMOGA",
+      city: "Bangalore",
       channel: "EC",
       vf: "VF_191222092311_36",
     },
@@ -79,15 +117,6 @@ const Table = () => {
   return (
     <Tab.SCTableBox style={{ marginBottom: 30 }}>
       <Tab.SCTableInformation>
-        <img src="../assets/img/Group 731.png" alt="logo" width={100} />
-        <Tab.SCTableStyle>
-          <Tab.SCTableStyleText>
-            Style -{" "}
-            <Tab.SCTableStyleTextSpan>
-              UDTSHC0010 USP | UD | TS MU01 | Rs 1499
-            </Tab.SCTableStyleTextSpan>
-          </Tab.SCTableStyleText>
-        </Tab.SCTableStyle>
         <Tab.SCTableList>
           {information.map((item) => (
             <Tab.SCTableItem>
@@ -99,25 +128,27 @@ const Table = () => {
       </Tab.SCTableInformation>
       <Tab.SCTableTab width="100%">
         <Tab.SCTableTr>
-          <Tab.SCTableTh><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>Item Code</Tab.SCTableTh>
+          <Tab.SCTableTh><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>Ace</Tab.SCTableTh>
+          <Tab.SCTableTh>Item Code</Tab.SCTableTh>
+          <Tab.SCTableTh>Size</Tab.SCTableTh>
           <Tab.SCTableTh>Quantity</Tab.SCTableTh>
-          <Tab.SCTableTh>Donor ROSN</Tab.SCTableTh>
-          <Tab.SCTableTh>Donor Location</Tab.SCTableTh>
+          <Tab.SCTableTh>Status</Tab.SCTableTh>
+          <Tab.SCTableTh>B | SB | Cat</Tab.SCTableTh>
+          <Tab.SCTableTh>Receiver Location</Tab.SCTableTh>
           <Tab.SCTableTh>City</Tab.SCTableTh>
-          <Tab.SCTableTh>Location Code</Tab.SCTableTh>
-          <Tab.SCTableTh>Location Type</Tab.SCTableTh>
           <Tab.SCTableTh>Channel</Tab.SCTableTh>
           <Tab.SCTableTh>VF IST ID</Tab.SCTableTh>
         </Tab.SCTableTr>
         {data.map((item) => (
           <tr>
-            <Tab.SCTableTd><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>{item?.item}</Tab.SCTableTd>
+            <Tab.SCTableTd style={{ color: '#F24242' }}><Tab.SCTableCheckbox><Checkbox name="action" value="action" onChange={onChange} /></Tab.SCTableCheckbox>{item?.age}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.item}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.size}</Tab.SCTableTd>
             <Tab.SCTableTd>{item?.quantity}</Tab.SCTableTd>
-            <Tab.SCTableTd>{item?.donor}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.status}</Tab.SCTableTd>
+            <Tab.SCTableTd>{item?.money}</Tab.SCTableTd>
             <Tab.SCTableTd>{item?.location}</Tab.SCTableTd>
             <Tab.SCTableTd>{item?.city}</Tab.SCTableTd>
-            <Tab.SCTableTd>{item?.code}</Tab.SCTableTd>
-            <Tab.SCTableTd>{item?.type}</Tab.SCTableTd>
             <Tab.SCTableTd>{item?.channel}</Tab.SCTableTd>
             <Tab.SCTableTd>{item?.vf}</Tab.SCTableTd>
           </tr>
@@ -125,12 +156,12 @@ const Table = () => {
 
       </Tab.SCTableTab>
       <Tab.SCButtonChecBox>
-        <ButtonOutlineCheck icon="accept" text="ACCEPT" onChange={onChange} />
-        <ButtonOutlineCheck icon="pause" text="PAUSE" onChange={onChange} />
-        <ButtonOutlineCheck icon="deline" text="REJECT" onChange={onChange} />
+        <ButtonOutlineCheck icon="ignore" text="IGNORE" onChange={onChange} />
+        <ButtonOutlineCheck icon="deline" text="TERMINATE" onChange={onChange} />
       </Tab.SCButtonChecBox>
     </Tab.SCTableBox>
   );
 };
 
-export default Table;
+export default TableForced;
+
