@@ -1,3 +1,4 @@
+import { ChangePassRequest } from '../types/User';
 
 import axios from "axios"
 import { RegisterRequest, LoginRequest } from '../types'
@@ -62,6 +63,7 @@ export namespace MainService {
     } finally {
       queryClient.clear();
       localStorage.removeItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD);
+      localStorage.removeItem('isCheckLogin');
     }
   };
 
@@ -74,16 +76,17 @@ export namespace MainService {
   }
 
   export const login = (payload: LoginRequest) => {
-    return axios.post(`/${API_USER}/login/`, payload).then(resp => {
-      localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD, JSON.stringify(resp.data.token));
-      return Promise.resolve(resp);
-    });
+    return axios.post(`/${API_USER}/login/`, payload)
+      .then(resp => {
+        localStorage.setItem(LOCAL_STORAGE_KEY.TOKEN_PAYLOAD, JSON.stringify(resp.data.token));
+        return Promise.resolve(resp);
+      });
   }
 
   export const forgotPassword = (payload: { email: string }) => {
     return axios.post(`/${API_USER}/send-reset-pwd-email/`, payload)
   }
-  export const changePassword = (payload: { code: string, password: string, password2: string }) => {
+  export const changePassword = (payload: ChangePassRequest) => {
     return axios.post(`/${API_USER}/reset-pwd/NQ/${payload.code}`, payload)
   }
 

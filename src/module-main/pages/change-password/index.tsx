@@ -8,6 +8,7 @@ import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
 import {notifyError, notifySuccess} from "../../../helpers/notify";
 import { useChangePassword } from "../../services";
+import { Errors } from "../../../components";
 
 const ChangePassword = () => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const ChangePassword = () => {
       password2: '',
     },
   });
-  const { register, handleSubmit, getValues } = form;
+  const { register, handleSubmit, getValues , formState: { errors }} = form;
 
   const { mutateAsync: mutateForgotPassword } = useChangePassword()
 
@@ -31,7 +32,7 @@ const ChangePassword = () => {
       },
       onError: (data) => {
         // @ts-ignore: Unreachable code error
-        notifyError(data.error)
+        notifyError('Something wrong !')
       }
     })
   };
@@ -50,13 +51,16 @@ const ChangePassword = () => {
               <RegisterStyle.Tittle>Change Password</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
               <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("code")} placeholder="Enter Code" />
+                  <RegisterStyle.IputLogin type="text" {...register("code" , {required: true})} placeholder="Enter Code" />
+                  <Errors errors={errors} name="code" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("password")} placeholder="Enter new password" />
+                  <RegisterStyle.IputLogin type="text" {...register("password", {required: true})} placeholder="Enter new password" />
+                  <Errors errors={errors} name="password" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("password2")} placeholder="Enter comfirm new password" />
+                  <RegisterStyle.IputLogin type="text" {...register("password2", {required: true})} placeholder="Enter comfirm new password" />
+                  <Errors errors={errors} name="password2" />
                 </div>
                 <RegisterStyle.SCButtonLogin className="primary">Submit
                 </RegisterStyle.SCButtonLogin>

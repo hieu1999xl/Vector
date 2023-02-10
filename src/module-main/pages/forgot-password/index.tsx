@@ -27,7 +27,7 @@ const ForgotPassword = () => {
     mutateForgotPassword(formData, {
       onSuccess: (data) => {
         navigate('/change-password')
-        notifySuccess('Password Reset link sent. Please check your email')
+        notifySuccess('Please check your email')
 
       },
       onError: (data) => {
@@ -41,8 +41,8 @@ const ForgotPassword = () => {
 
     <LoginHead />
     <div style={{ background: '#ececf1', height: 'calc(100vh - 273px)' }}>
-      <LoginStyleGl.SCGrid style={{ height: '100%' }}>
-        <LoginStyleGl.SCRow style={{ height: '100%' }}>
+      <LoginStyleGl.SCGrid >
+        <LoginStyleGl.SCRow >
           <LoginStyleGl.SCCol_5 >
             <ContentLogin />
           </LoginStyleGl.SCCol_5>

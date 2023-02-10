@@ -27,6 +27,7 @@ const lazyLoad = (children: React.ReactNode) => {
     </Suspense>
   );
 };
+const loggedIn = localStorage.getItem('isCheckLogin')
 
 export const initRoutes = (): RouteObject[] => {
 
