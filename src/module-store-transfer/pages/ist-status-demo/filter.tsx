@@ -53,8 +53,10 @@ const istFilter = (props: { dataSetting: any, setSettingView: any, refreshData: 
           <SCIstStatusAddText>Views</SCIstStatusAddText>
           <SCIstStatusAddButton onClick={() => addNewView()}>+Add Views</SCIstStatusAddButton>
         </SCIstStatusAddNew>
+        <div style={{display: 'flex'}}>
+          {/* quick fix */}
         {setting.map((item: any, index: number) => (
-          <div key={index}>
+          <div key={index} style={{marginRight: '10px'}}>
             <SCIstStatusInput
               defaultChecked={index === 0}
               name='settingPanel'
@@ -66,6 +68,7 @@ const istFilter = (props: { dataSetting: any, setSettingView: any, refreshData: 
             </SCIstStatusLabel>
           </div>
         ))}
+        </div>
       </SCIstStatusFIlterBox>
     </>
   )

@@ -14,12 +14,10 @@ const istStatus = () => {
   const [currentSelected, setCurrentSelected] = useState(dataSetting[0]);
   const [data, setData] = useState(Services.getData);
   useEffect(() => {
-    console.log(currentSelected)
   }, []);
 
   const setSettingView = (index: number) => {
     setCurrentSelected(dataSetting[index])
-    console.log(index)
   }
 
   const refreshData = () => {
