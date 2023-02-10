@@ -1,0 +1,36 @@
+.rdt_Table {
+  background-color: #F9F9F9 !important;
+}
+
+.rdt_TableHead {
+  margin-bottom: 20px;
+}
+
+.rdt_TableRow{
+  border-bottom: none !important;
+}
+
+.rdt_TableHeadRow {
+  border-bottom: none !important;
+}
+
+.rdt_TableBody {
+  padding-top: 4px;
+  background: white;
+}
+
+.rdt_TableCell{
+  border-right: 1px solid #b4b4b4;
+}
+
+.rdt_TableCell:last-child{
+  border-right: unset;
+}
+
+.rdt_TableRow:nth-child(even) {
+  background-color: #fff;
+}
+
+.rdt_TableRow:nth-child(odd) {
+  background-color: #F4F4F4;
+}

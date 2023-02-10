@@ -3,6 +3,9 @@ import Services from './../../services/IstStatus'
 import TableIst from './table';
 import FilterIst from './filter';
 import { ButtonCheck } from './../../../components/index';
+import * as GridSystem from "../../../styles/gridSystem"
+import { SCIstStatusRow } from './styles';
+import './test.css'
 
 
 const istStatus = () => {
@@ -24,18 +27,24 @@ const istStatus = () => {
     setDataSetting(Services.getSetting)
   }
   return (
-    <div style={{ display: 'flex' }}>
-      <TableIst
-        dataIst={data ? data : {}}
-        dataSetting={currentSelected ? currentSelected : {}}
-      />
-      <FilterIst
-        dataSetting={dataSetting ? dataSetting : {}}
-        refreshData={refreshData}
-        setSettingView={setSettingView}
-      />
+    <SCIstStatusRow>
 
-    </div>
+      <GridSystem.SCCol_8 style={{ paddingLeft: 0, paddingRight: 30 }}>
+        <TableIst
+          dataIst={data ? data : {}}
+          dataSetting={currentSelected ? currentSelected : {}}
+        />
+      </GridSystem.SCCol_8>
+      <GridSystem.SCCol_3>
+        <FilterIst
+          dataSetting={dataSetting ? dataSetting : {}}
+          refreshData={refreshData}
+          setSettingView={setSettingView}
+        />
+      </GridSystem.SCCol_3>
+
+
+    </SCIstStatusRow>
   )
 }
 
