@@ -30,6 +30,7 @@ const Login = () => {
     },
   });
   const { register, handleSubmit, getValues, formState: { errors } } = form;
+  console.log(errors)
 
   const { mutate: mutateLogin, error } = useLoginAccount()
 
@@ -66,12 +67,20 @@ const Login = () => {
               <LoginStyle.Tittle>Login</LoginStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group">
-                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true})} placeholder="Enter Username"
+                  <LoginStyle.IputLogin error={errors.email} type="text" {...register("email", { required: true,
+                  pattern: {
+                    value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    message: "Email format is wrong"
+                  },})} placeholder="Enter Username"
                   />
                   <Errors errors={errors} name="email" />
                 </div>
                 <div className="input-group">
-                  <LoginStyle.IputLogin error={errors.password} type="password" {...register("password", { required: true })} placeholder="Enter Password" />
+                  <LoginStyle.IputLogin error={errors.password} type="password" {...register("password", { required: true,
+                  minLength: {
+                    value: 8,
+                    message: "Password must exceed 8 characters"
+                  } })} placeholder="Enter Password" />
                   <Errors errors={errors} name="password" />
                 </div>
                 <div className="keep-signin">

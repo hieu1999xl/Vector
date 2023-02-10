@@ -10,6 +10,11 @@ const Errors = ({ errors, name }: ErrorsProps) => {
     
         // case 'maxLength':
         //   return `This ${name} do not more than`
+      case "minLength":
+        return `${errors[name].message}`
+      
+      case "pattern":
+        return `${errors[name].message}`
 
       default:
         return null

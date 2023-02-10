@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import LoginHead from "../../../components/commons/LoginHead";
 import * as LoginStyleGl from '../../../styles/gridSystem'
 import ContentLogin from "../../../components/commons/ContentLogin";
-import {notifyError, notifySuccess} from "../../../helpers/notify";
+import { notifyError, notifySuccess } from "../../../helpers/notify";
 import { RegisterRequest } from "src/module-main/types";
 import { useRegisterAccount } from "../../services";
 import { Errors } from "../../../components";
@@ -23,12 +23,12 @@ const Register = () => {
       tc: true
     },
   });
-  const { register, handleSubmit, getValues, formState: {errors} } = form;
+  const { register, handleSubmit, getValues, formState: { errors } } = form;
   const { mutate: mutateRegister } = useRegisterAccount()
 
   const onSave = () => {
     const formData = getValues();
-    mutateRegister( formData , {
+    mutateRegister(formData, {
       onSuccess: () => {
         navigate('/login')
         notifySuccess("Register Success")
@@ -54,22 +54,27 @@ const Register = () => {
               <RegisterStyle.Tittle>Register</RegisterStyle.Tittle>
               <form className="form" onSubmit={handleSubmit(onSave)}>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("name", {required: true})} placeholder="Enter Fullname" />
+                  <RegisterStyle.IputLogin type="text" {...register("name", { required: true })} placeholder="Enter Fullname" />
                   <Errors errors={errors} name="name" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="text" {...register("email", {required: true})} placeholder="Enter Email" />
+                  <RegisterStyle.IputLogin type="text" {...register("email", {
+                    required: true, pattern: {
+                      value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                      message: "Email format is wrong"
+                    }
+                  })} placeholder="Enter Email" />
                   <Errors errors={errors} name="email" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password", {required: true})} placeholder="Enter Password" />
+                  <RegisterStyle.IputLogin type="password" {...register("password", { required: true })} placeholder="Enter Password" />
                   <Errors errors={errors} name="password" />
                 </div>
                 <div className="input-group-reg">
-                  <RegisterStyle.IputLogin type="password" {...register("password2", {required: true})} placeholder="Enter Confirm Password" />
+                  <RegisterStyle.IputLogin type="password" {...register("password2", { required: true })} placeholder="Enter Confirm Password" />
                   <Errors errors={errors} name="password2" />
                 </div>
-                
+
                 <RegisterStyle.SCButtonLogin className="primary">Submit
                 </RegisterStyle.SCButtonLogin>
 
