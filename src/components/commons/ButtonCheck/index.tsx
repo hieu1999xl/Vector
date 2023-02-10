@@ -1,13 +1,22 @@
 import './styles.css'
-const ButtonCheck = () => {
+import { useState } from 'react'
+interface ButtonCheckProps {
+  onClick: any;
+  text: string;
+  toggled: boolean
+}
+const ButtonCheck = ({ onClick, text, toggled }: ButtonCheckProps) => {
+  const [isToggled, toggle] = useState(toggled)
+  const callback = () => {
+    toggle(!isToggled)
+    console.log('isToggled', isToggled);
+    onClick(!isToggled)
+  }
   return (
     <>
-      <input className="checkbox_ist" type="checkbox" id="Checkbox" name="Checkbox" />
-      <label htmlFor="Checkbox">
-        <span className="label-name">Item Code</span>
-        <div className="checkmark">
-          <img src="../assets/img/status/status.svg" />
-        </div>
+      <input className="checkbox_ist" type="checkbox" defaultChecked={isToggled} id="Checkbox" name="Checkbox" />
+      <label onClick={callback}>
+        <span className="label-name" style={isToggled === true ? { color: '#000' } : {}}>{text}</span>
       </label>
     </>
   )

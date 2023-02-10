@@ -63,7 +63,7 @@
     position: relative;
 }
 
-.input-group > input:focus {
+input:focus {
   background: #fff;
   outline: none;
 }

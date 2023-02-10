@@ -23,15 +23,15 @@ const istStatus = () => {
     setDataSetting(Services.getSetting)
   }
   return (
-    <div style={{border: '1px solid', display: 'flex'}}> 
+    <div style={{ border: '1px solid', display: 'flex' }}>
       <TableIst
-        dataIst = {data ? data : {}}
-        dataSetting = {currentSelected ? currentSelected : {}}
+        dataIst={data ? data : {}}
+        dataSetting={currentSelected ? currentSelected : {}}
       />
       <FilterIst
-        dataSetting = {dataSetting ? dataSetting : {}}
-        refreshData = {refreshData}
-        setSettingView = {setSettingView}
+        dataSetting={dataSetting ? dataSetting : {}}
+        refreshData={refreshData}
+        setSettingView={setSettingView}
       />
     </div>
   )
