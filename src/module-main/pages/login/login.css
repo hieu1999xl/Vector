@@ -1,8 +1,4 @@
 
-.App > .form {
-  margin-bottom: 41px;
-  margin-top: 41px;
-}
 .input-group {
   margin-bottom: 26px;
   position: relative;
@@ -53,15 +49,6 @@
   display: inline-block;
   margin-bottom: 5px;
 }
-.form-field {
-    display: flex;
-    -webkit-box-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    align-items: center;
-    margin-bottom: 1rem;
-    position: relative;
-}
 
 input:focus {
   background: #fff;
@@ -71,15 +58,12 @@ input:focus {
   color: #c4c4c4;
   font-size: 16px;
 }
-
+/* 
 .changepw {
   padding-top: 5px;
-}
-.register {
-  padding: 0px 0px 10px;
-}
+} */
 
-button.primary {
+/* button.primary {
   background: #f0f1f4;
   box-shadow: -6px -6px 30px #bbb7b7;
   border-radius: 40px;
@@ -93,20 +77,9 @@ button.primary:hover {
   color: #FFFFFF;
   position: relative;
   transition: all 0.5s;
-}
-button.secondary {
-  background: #c1d7aa;
-}
-button.secondary:hover {
-  background: #a8c787;
-}
+} */
 
-.keep-signin {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 45px;
-  margin-top: 45px;
-}
+
 .custom-checkbox {
   -webkit-appearance: none;
   background: #f0f1f4;
@@ -150,9 +123,4 @@ button.secondary:hover {
 }
 .submit-icon {
   padding-left: 15px;
-}
-.err-input {
-  color: red;
-  font-size: 12px;
-  padding-top: 8px;
 }

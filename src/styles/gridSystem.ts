@@ -9,7 +9,7 @@ export const size = {
     laptop: '1024px',
     laptopL: '1440px',
     desktop: '2560px'
-  }
+}
 
 export const SCGrid = styled.div`
     margin: 0 auto;
@@ -19,11 +19,14 @@ export const SCGrid = styled.div`
       }
 `
 
-export const SCRow  = styled.div`
+export const SCRow = styled.div`
     margin-left: calc(var(--pd) * -1);
     margin-right: calc(var(--pd) * -1);
     display: flex;
     flex-wrap: wrap;
+    @media only screen and (max-width: 992px) {
+        flex-direction : column-reverse
+      }
 `
 
 export const SCFull = styled.div`

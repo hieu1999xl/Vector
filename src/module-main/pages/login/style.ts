@@ -1,21 +1,28 @@
 import styled from "styled-components"
 
 export const SCButtonLogin = styled.button`
-border-radius: 5px;
-border: none;
-color: #fff;
-cursor: pointer;
-font-family: 'Open Sans', sans-serif;
-font-size: 18px;
-font-weight: bold;
-letter-spacing: 1px;
-max-width: 420px;
-outline: 0;
-padding: 10px 0;
-transition: background 0.3s;
-width: 80%;
-`
-export const App: any = styled.div`  
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 10px 0;
+  transition: background 0.3s;
+  background: #f0f1f4;
+  box-shadow: -6px -6px 30px #bbb7b7;
+  border-radius: 40px;
+  width: 324px;
+  height: 65px;
+  color: #575F6B;
+  margin-bottom: 30px;
+  &:hover {
+    background: #460224;
+    color: #FFFFFF;
+    position: relative;
+    transition: all 0.5s;
+  }
+  `
+export const App: any = styled.div`
                 // background: #f7fafc;
                 // border-radius: 4px;
                 // box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
@@ -44,3 +51,20 @@ export const IputLogin: any = styled.input<{ error: true | false }>`
     overflow: hidden;
     
   `
+export const AuthenForm: any = styled.div`
+  background: '#ececf1',
+  height: '100vh'
+`
+export const Regrister: any = styled.div`
+  padding: 0px 0px 10px;
+`
+export const ChangePassText: any = styled.div`
+  padding-top: 5px;
+`
+export const KeepSingIn: any = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 45px;
+  margin-top: 45px;
+`
+
