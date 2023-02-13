@@ -30,7 +30,6 @@ const Login = () => {
     },
   });
   const { register, handleSubmit, getValues, formState: { errors } } = form;
-  console.log(errors)
 
   const { mutate: mutateLogin, error } = useLoginAccount()
 

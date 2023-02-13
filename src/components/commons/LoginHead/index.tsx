@@ -11,7 +11,6 @@ const LoginHead = () => {
           <img src="../assets/img/arrow.png" alt="" style={{position : 'absolute', right: '50px', bottom: '-50px'}}/>
           <img src="../assets/img/arrow2.png" alt="" style={{position : 'absolute', left: '-55px', bottom: '-400px'}}/>
         </LogoHead>
-        
       </BgHead>
   
   );

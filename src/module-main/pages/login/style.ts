@@ -21,7 +21,7 @@ export const App: any = styled.div`
                 // box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
                 max-width: 615px;
                 // padding-bottom: 66px;
-                // padding-top: 46px;
+                margin-top: 80px;
                 text-align: center;
                 border-left: 1px solid #c9c1c1;
                 width: 90%;

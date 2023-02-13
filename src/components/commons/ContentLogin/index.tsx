@@ -88,7 +88,8 @@ const Describe = styled.h3`
   font: normal normal 300 17px/30px Roboto;
   letter-spacing: 0px;
   color: #1C1E2B;
-  // margin: 10px
+  margin-top: 5px;
+  margin-bottom: 25px;
   `
   
 
