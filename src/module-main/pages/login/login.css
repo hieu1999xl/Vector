@@ -19,6 +19,7 @@
     display: block;
     background-size: cover;
     background-repeat: no-repeat;
+    
 }
 .input-group:nth-child(1)::before {
   background-image: url(../../../../public/assets/img/usericon.png);
@@ -58,26 +59,6 @@ input:focus {
   color: #c4c4c4;
   font-size: 16px;
 }
-/* 
-.changepw {
-  padding-top: 5px;
-} */
-
-/* button.primary {
-  background: #f0f1f4;
-  box-shadow: -6px -6px 30px #bbb7b7;
-  border-radius: 40px;
-  width: 324px;
-  height: 65px;
-  color: #575F6B;
-  margin-bottom: 30px;
-}
-button.primary:hover {
-  background: #460224;
-  color: #FFFFFF;
-  position: relative;
-  transition: all 0.5s;
-} */
 
 
 .custom-checkbox {
@@ -123,4 +104,9 @@ button.primary:hover {
 }
 .submit-icon {
   padding-left: 15px;
+}
+@media only screen and (max-width: 1024px) {
+  .input-group::before{
+    left: 122px;
+  }
 }

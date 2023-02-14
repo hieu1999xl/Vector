@@ -24,7 +24,7 @@ export const SCRow = styled.div`
     margin-right: calc(var(--pd) * -1);
     display: flex;
     flex-wrap: wrap;
-    @media only screen and (max-width: 992px) {
+    @media only screen and (max-width: 1024px) {
         flex-direction : column-reverse
       }
 `
@@ -50,10 +50,19 @@ export const SCCol_3 = styled.div`
 export const SCCol_4 = styled.div`
     flex: 0 0 33.33%;
     max-width: 33.33%;
+    
+    @media only screen and (max-width: 1024px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
 `
 export const SCCol_5 = styled.div`
     flex: 0 0 66.66%;
     max-width: 66.66%;
+    @media only screen and (max-width: 1024px) {
+        flex: 0 0 100%;
+        max-width: 100%;
+      }
 `
 
 export const SCCol_6 = styled.div`

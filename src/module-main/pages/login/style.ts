@@ -32,6 +32,12 @@ export const App: any = styled.div`
                 text-align: center;
                 border-left: 1px solid #c9c1c1;
                 width: 90%;
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
+                @media only screen and (max-width: 1024px) {
+                  border: none
+                }
             `;
 export const Tittle: any = styled.h1`
     font: normal normal medium 30px/39px Roboto;

@@ -11,7 +11,6 @@ import { useLoginAccount } from "../../services";
 import { hasUdfToken } from "../../../helpers/utils";
 import { Errors } from "../../../components";
 import { useState } from "react";
-import { log } from "console";
 
 const Login = () => {
 
@@ -39,10 +38,6 @@ const Login = () => {
       onSuccess: (data) => {
         navigate('/')
         notifySuccess('Login success !')
-        // if(!remember) {
-        //   // @ts-ignore: Unreachable code error
-        //   localStorage.removeItem('token')
-        // }
       },
     })
     
@@ -61,7 +56,7 @@ const Login = () => {
             <LoginStyleGl.SCCol_5 >
               <ContentLogin />
             </LoginStyleGl.SCCol_5>
-            <LoginStyleGl.SCCol_4 style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <LoginStyleGl.SCCol_4>
               <LoginStyle.App>
                 <LoginStyle.Tittle>Login</LoginStyle.Tittle>
                 <form onSubmit={handleSubmit(onSave)}>
