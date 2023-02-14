@@ -32,10 +32,7 @@ export const App: any = styled.div`
                 text-align: center;
                 border-left: 1px solid #c9c1c1;
                 width: 90%;
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center'
-                @media only screen and (max-width: 1024px) {
+                @media only screen and (max-width: 1280px) {
                   border: none
                 }
             `;
@@ -51,8 +48,8 @@ export const IputLogin: any = styled.input<{ error: true | false }>`
     text-indent: 70px;
     width: 513px;
     height: 70px;
-    background: #f0f1f4;
-    box-shadow: -4px -4px 20px #bbb7b7;
+    background: #EBECF1;
+    box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.25), inset 4px 4px 8px rgba(207, 211, 222, 0.5);
     border-radius: 40px;
     overflow: hidden;
     

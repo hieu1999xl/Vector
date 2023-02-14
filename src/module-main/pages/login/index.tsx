@@ -56,7 +56,7 @@ const Login = () => {
             <LoginStyleGl.SCCol_5 >
               <ContentLogin />
             </LoginStyleGl.SCCol_5>
-            <LoginStyleGl.SCCol_4>
+            <LoginStyleGl.SCCol_4 >
               <LoginStyle.App>
                 <LoginStyle.Tittle>Login</LoginStyle.Tittle>
                 <form onSubmit={handleSubmit(onSave)}>
